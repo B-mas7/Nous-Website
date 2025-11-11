@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediLab Pro - Advanced Medical Laboratory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+:root {
+    --primary: #0066cc;
+    --secondary: #00a8e8;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --accent: #00ff88;
+    --gradient: linear-gradient(135deg, #0066cc 0%, #00a8e8 100%);
+    --bg-image: url('Novus.jpg');
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+
+    /* Direct background image */
+    background-image: url('Novus.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 180px;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, #0066cc 0%, #00a8e8 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.1"><defs><pattern id="med" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M50,50 L100,0 L100,100 L0,100 L0,0 Z" fill="none" stroke="white" stroke-width="2"/></pattern></defs><rect width="1200" height="800" fill="url(%23med)"/></svg>');
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: colorChange 8s infinite, fadeInUp 1.5s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1.5s ease-out 0.6s both;
+        }
+
+        @keyframes colorChange {
+            0% { color: white; }
+            33% { color: #00ff88; }
+            66% { color: #00a8e8; }
+            100% { color: white; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1.5s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .floating-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .stat {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .about-image.animate {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s ease;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .about-text h2.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .about-text p.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease 0.2s;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CEO Section */
+        .ceo-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .ceo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ceo-image {
+            text-align: center;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .ceo-details h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .ceo-details h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .ceo-details p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .ceo-quote {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
+            margin-top: 2rem;
+        }
+
+        .ceo-quote p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .ceo-quote .author {
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* Staff Section */
+        .staff-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .staff-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .staff-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .staff-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .staff-card:hover .staff-image img {
+            transform: scale(1.1);
+        }
+
+        .staff-info {
+            padding: 1.5rem;
+        }
+
+        .staff-info h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .staff-info .position {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .staff-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .staff-qualifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .qualification {
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+
+        /* Machines Section */
+        .machines-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .machines-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .machine-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .machine-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .machine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .machine-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .machine-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .machine-card:hover .machine-image img {
+            transform: scale(1.1);
+        }
+
+        .machine-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .machine-info {
+            padding: 1.5rem;
+        }
+
+        .machine-info h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .machine-specs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .spec i {
+            color: var(--primary);
+        }
+
+        .machine-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .machine-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .machine-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .machine-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .contact-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .contact-form.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content,
+            .about-content,
+            .ceo-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                display: none;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .ceo-image {
+                order: -1;
+            }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+           <div class="logo" style="display:flex; align-items:center; gap:8px;">
+    <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
+    <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd. </span>
+</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="Our Services.html">Services</a></li>
+                <li><a href="#machines">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+  
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-image">
+                <iframe 
+    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/Novuspath/videos/1551436912082813/&show_text=0&width=560" 
+    width="660" 
+    height="415" 
+    style="border:none;overflow:hidden" 
+    scrolling="no" 
+    frameborder="0" 
+    allowfullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+</iframe>
+
+            </div>
+            <div class="about-text">
+                <h2>About Novus Path Labs</h2>
+                <p>Novus Pathlabs is a Medical Laboratory where all especial test and Routine Test are Done.</p>
+                <p>Established in 2073 B.S., Novus Path
+                 Labs is a modern diagnostic centre located in Lampati, Kalanki, dedicated to providing accurate, affordable, and accessible laboratory services.
+                 +
+                 We are NPHL-certified under B Category.
+                 ensuring our laboratory practices meet national standards in quality and reliability. Our expert pathologists and trained staff use state-of-the-art equipment to deliver dependable reports with precision.
+                 Whether its a basic test or an advanced health screening package, our commit-ment is to help you take control of your health with confidence.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>ISO Certified</h4>
+                            <p>International quality standards compliance</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Quick Results</h4>
+                            <p>Fast turnaround time for all tests</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Expert Team</h4>
+                            <p>Highly qualified laboratory professionals</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Confidential</h4>
+                            <p>Complete privacy and data security</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="ceo-section" id="ceo">
+        <div class="ceo-container">
+            <div class="ceo-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='500' fill='url(%23g)'/%3E%3Ccircle cx='200' cy='180' r='80' fill='white' opacity='0.8'/%3E%3Crect x='120' y='280' width='160' height='100' rx='10' fill='white' opacity='0.8'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-size='24' font-weight='bold' fill='%230066cc' font-family='Arial'%3ECEO%3C/text%3E%3C/svg%3E" alt="CEO Photo">
+            </div>
+            <div class="ceo-details">
+                <h2>KUBER DAHA</h2>
+                <h3>Founder & CEO</h3>
+                <p>Kuber Dahal is a renowned pathologist with over 20 years of experience in medical diagnostics. He completed his MD in Pathology from AIIMS Delhi and has worked with several prestigious hospitals before establishing Novus Path Labs.</p>
+                <p>Under his leadership, Novus Path Labs has grown to become one of the most trusted diagnostic centers in the region, known for its accuracy, reliability, and patient-centric approach.</p>
+                <p>Kuber Dahal is passionate about incorporating the latest technological advancements in laboratory medicine to ensure the highest quality of diagnostic services for patients.</p>
+                
+                <div class="ceo-quote">
+                    <p>"Our mission at Novus Path Labs is not just to provide test results, but to contribute meaningfully to the healthcare journey of every patient who walks through our doors. Accuracy in diagnostics can save lives, and we take that responsibility very seriously."</p>
+                    <p class="author">- Kuber Dahal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="staff-section" id="staff">
+        <div class="section-title">
+            <h2>Our Expert Team</h2>
+            <p>Meet our team of highly qualified medical professionals</p>
+        </div>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Ccircle cx='200' cy='120' r='60' fill='white' opacity='0.8'/%3E%3Crect x='140' y='200' width='120' height='60' rx='5' fill='white' opacity='0.8'/%3E%3C/svg%3E" alt="Dr. Priya Singh">
+                </div>
+                <div class="staff-info">
+                    <h3>....</h3>
+                    <p class="position">Chief Pathologist</p>
+                    <p>..... specializes in clinical pathology with 15 years of experience. She oversees all laboratory operations and ensures quality control.</p>
+                    <div class="staff-qualifications">
+                        <span class="qualification">MD Pathology</span>
+                        <span class="qualification">DNB</span>
+                        <span class="qualification">.... Exp</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Ccircle cx='200' cy='120' r='60' fill='white' opacity='0.8'/%3E%3Crect x='140' y='200' width='120' height='60' rx='5' fill='white' opacity='0.8'/%3E%3C/svg%3E" alt="Dr. Amit Kumar">
+                </div>
+                <div class="staff-info">
+                    <h3>.... </h3>
+                    <p class="position">Microbiologist</p>
+                    <p>.... is an expert in microbiology and infectious diseases. He leads our microbiology department with precision and expertise.</p>
+                    <div class="staff-qualifications">
+                        <span class="qualification">MD Microbiology</span>
+                        <span class="qualification">MSc</span>
+                        <span class="qualification">.....Exp</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Ccircle cx='200' cy='120' r='60' fill='white' opacity='0.8'/%3E%3Crect x='140' y='200' width='120' height='60' rx='5' fill='white' opacity='0.8'/%3E%3C/svg%3E" alt="Ms. Anjali Verma">
+                </div>
+                <div class="staff-info">
+                    <h3>.....</h3>
+                    <p class="position">Lab Manager</p>
+                    <p>.... manages our laboratory operations with efficiency and ensures smooth workflow and timely delivery of reports.</p>
+                    <div class="staff-qualifications">
+                        <span class="qualification">MSc Biotechnology</span>
+                        <span class="qualification">MLT</span>
+                        <span class="qualification">.... Exp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machines Section -->
+    <section class="machines-section" id="machines">
+        <div class="section-title">
+            <h2>Our Advanced Equipment</h2>
+            <p>State-of-the-art diagnostic machines for accurate results</p>
+        </div>
+        <div class="machines-grid">
+            <div class="machine-card">
+                <div class="machine-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white' opacity='0.8'/%3E%3Crect x='80' y='80' width='240' height='40' fill='%230066cc' opacity='0.5'/%3E%3Crect x='80' y='140' width='100' height='80' fill='%230066cc' opacity='0.5'/%3E%3Crect x='200' y='140' width='120' height='40' fill='%230066cc' opacity='0.5'/%3E%3Crect x='200' y='190' width='120' height='30' fill='%230066cc' opacity='0.5'/%3E%3C/svg%3E" alt="Hematology Analyzer">
+                    <div class="machine-category">Hematology</div>
+                </div>
+                <div class="machine-info">
+                    <h3>......</h3>
+                    <div class="machine-specs">
+                        <div class="spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>120 Samples/Hour</span>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-microscope"></i>
+                            <span>30 Parameters</span>
+                        </div>
+                    </div>
+                    <p>Advanced hematology analyzer for complete blood count (CBC) with differential, reticulocyte count, and body fluid analysis.</p>
+                    <ul class="machine-features">
+                        <li>5-part differential analysis</li>
+                        <li>Automatic flagging for abnormal cells</li>
+                        <li>High precision and accuracy</li>
+                        <li>Minimal maintenance required</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="machine-card">
+                <div class="machine-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white' opacity='0.8'/%3E%3Ccircle cx='200' cy='150' r='60' fill='%230066cc' opacity='0.5'/%3E%3Crect x='170' y='120' width='60' height='60' fill='white'/%3E%3C/svg%3E" alt="Chemistry Analyzer">
+                    <div class="machine-category">Clinical Chemistry</div>
+                </div>
+                <div class="machine-info">
+                    <h3>......</h3>
+                    <div class="machine-specs">
+                        <div class="spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>800 Tests/Hour</span>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-vial"></i>
+                            <span>100+ Tests</span>
+                        </div>
+                    </div>
+                    <p>Fully automated clinical chemistry analyzer for comprehensive metabolic panels, liver function tests, renal function tests, and more.</p>
+                    <ul class="machine-features">
+                        <li>Integrated ISE module</li>
+                        <li>Random access testing</li>
+                        <li>Low reagent consumption</li>
+                        <li>24/7 operation capability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="machine-card">
+                <div class="machine-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white' opacity='0.8'/%3E%3Crect x='80' y='80' width='240' height='140' fill='%230066cc' opacity='0.5'/%3E%3Crect x='100' y='100' width='60' height='60' fill='white'/%3E%3Crect x='180' y='100' width='60' height='60' fill='white'/%3E%3Crect x='260' y='100' width='40' height='60' fill='white'/%3E%3C/svg%3E" alt="Immunoassay Analyzer">
+                    <div class="machine-category">Immunology</div>
+                </div>
+                <div class="machine-info">
+                    <h3>.....</h3>
+                    <div class="machine-specs">
+                        <div class="spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>200 Tests/Hour</span>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-vial"></i>
+                            <span>50+ Assays</span>
+                        </div>
+                    </div>
+                    <p>Advanced immunoassay system for hormone testing, tumor markers, cardiac markers, infectious diseases, and thyroid function tests.</p>
+                    <ul class="machine-features">
+                        <li>Chemiluminescent technology</li>
+                        <li>Simultaneous testing capability</li>
+                        <li>Continuous loading</li>
+                        <li>Onboard refrigeration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="machine-card">
+                <div class="machine-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' style='stop-color:%230066cc'/%3E%3Cstop offset='100%25' style='stop-color:%2300a8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23g)'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white' opacity='0.8'/%3E%3Crect x='80' y='80' width='240' height='140' fill='%230066cc' opacity='0.5'/%3E%3Ccircle cx='150' cy='150' r='30' fill='white'/%3E%3Ccircle cx='250' cy='150' r='30' fill='white'/%3E%3C/svg%3E" alt="PCR Machine">
+                    <div class="machine-category">Molecular Diagnostics</div>
+                </div>
+                <div class="machine-info">
+                    <h3>.....</h3>
+                    <div class="machine-specs">
+                        <div class="spec">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>96 Wells</span>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-dna"></i>
+                            <span>Real-time PCR</span>
+                        </div>
+                    </div>
+                    <p>Real-time PCR system for molecular diagnostics including COVID-19 testing, genetic disorders, viral load monitoring, and more.</p>
+                    <ul class="machine-features">
+                        <li>High-throughput capability</li>
+                        <li>Precise temperature control</li>
+                        <li>Multiplex detection</li>
+                        <li>User-friendly software</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for appointments and inquiries</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Our Location</h3>
+                        <p>Lampati kalanki 14,<br>Kathmandu, Nepal, 44600</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone Number</h3>
+                        <p>01-5234659</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Address</h3>
+                        <p>novusnepal@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Working Hours</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    Thank you! Your message has been sent successfully.
+                </div>
+                <div class="error-message" id="errorMessage">
+                    Please fill in all fields correctly.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-flask"></i> Novus Path Labs</h3>
+                <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="novus.html">Home</a>
+                <a href="Our Services.html">Services</a>
+                <a href="About us.html">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Book Appointment</a>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <a href="#">Clinical Chemistry</a>
+                <a href="#">Hematology</a>
+                <a href="#">Microbiology</a>
+                <a href="#">Molecular Diagnostics</a>
+                <a href="#">Immunology</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#">Patient Portal</a>
+                <a href="#">Download Reports</a>
+                <a href="#">Test Preparation</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Novus Path Labs & Diagnostic Centre Pvt. Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                    mobileMenu.querySelector('i').classList.add('fa-bars');
+                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Active Navigation on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update active link
+            const sections = document.querySelectorAll('section');
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Basic validation
+            if (name === '' || email === '' || phone === '' || message === '') {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+                return;
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                    errorMessage.textContent = 'Please fill in all fields correctly.';
+                }, 3000);
+                return;
+            }
+
+            // If validation passes, show success message
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            contactForm.reset();
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.service-card, .feature, .contact-item, .about-image, .about-text h2, .about-text p, .contact-form, .staff-card, .machine-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

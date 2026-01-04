@@ -31,6 +31,7 @@
         /* Navigation */
         nav {
             position: fixed;
+            left:0;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
@@ -57,10 +58,12 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
+            left: 196px;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
@@ -83,12 +86,38 @@
             width: 100%;
         }
 
+       .social-nav {
+    display: flex;       /* keep icons in a row */
+    gap: 1rem;           /* space between icons */
+    transform: translateX(100px); /* move whole social icons container slightly left */
+}
+
+
+
+        .social-nav a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--dark);
         }
+
 
         /* Header Section */
         .header {
@@ -712,221 +741,35 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-           <div class="logo" style="display:flex; align-items:center; gap:8px;">
-                <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
-                <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd. </span>
-            </div>
-
-             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="Our Services.html">Services</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="Contact us.html">Contact</a></li>
-            </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
+    <!-- Navigation (same as other pages) -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo" style="display:flex; align-items:center; gap:8px;">
+            <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
+            <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd.</span>
         </div>
-    </nav>
+<ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Our Services.html" class="active">Services</a></li>
+    <li><a href="About us.html">About Us</a></li>
+    <li><a href="Test Price List.html">Test Price</a></li>
+    <li><a href="Contact us.html">Contact</a></li>
+</ul>
+        
+        <div class="social-nav">
+            <a href="https://www.facebook.com/Novuspath" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Comprehensive diagnostic testing with cutting-edge technology</p>
-        </div>
-        
-        <div class="services-tabs">
-            <button class="tab-btn active" data-tab="biochemistry">Biochemistry</button>
-            <button class="tab-btn" data-tab="hematology">Hematology</button>
-            <button class="tab-btn" data-tab="immunology">Immunology</button>
-            <button class="tab-btn" data-tab="microbiology">Microbiology</button>
-            <button class="tab-btn" data-tab="hormones">Hormones</button>
-        </div>
-        
-        <div class="tab-content active" id="biochemistry">
-            <div class="tests-grid">
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Liver Function Test (LFT)</h3>
-                        <p>Measures enzymes and proteins in your blood</p>
-                    </div>
-                    <div class="test-price">₹800</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Kidney Function Test (KFT)</h3>
-                        <p>Assesses how well your kidneys are working</p>
-                    </div>
-                    <div class="test-price">₹700</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Lipid Profile</h3>
-                        <p>Measures cholesterol and triglycerides</p>
-                    </div>
-                    <div class="test-price">₹900</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Thyroid Profile (T3, T4, TSH)</h3>
-                        <p>Evaluates thyroid gland function</p>
-                    </div>
-                    <div class="test-price">₹1,200</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Blood Glucose (Fasting & PP)</h3>
-                        <p>Measures blood sugar levels</p>
-                    </div>
-                    <div class="test-price">₹300</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Uric Acid</h3>
-                        <p>Measures uric acid levels in blood</p>
-                    </div>
-                    <div class="test-price">₹350</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="tab-content" id="hematology">
-            <div class="tests-grid">
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Complete Blood Count (CBC)</h3>
-                        <p>Measures different components of blood</p>
-                    </div>
-                    <div class="test-price">₹500</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>ESR (Erythrocyte Sedimentation Rate)</h3>
-                        <p>Measures inflammation in the body</p>
-                    </div>
-                    <div class="test-price">₹200</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Peripheral Smear</h3>
-                        <p>Examines blood cells under microscope</p>
-                    </div>
-                    <div class="test-price">₹300</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Hemoglobin Electrophoresis</h3>
-                        <p>Detects abnormal hemoglobin variants</p>
-                    </div>
-                    <div class="test-price">₹1,500</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="tab-content" id="immunology">
-            <div class="tests-grid">
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>RA Factor</h3>
-                        <p>Detects rheumatoid arthritis</p>
-                    </div>
-                    <div class="test-price">₹600</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>ANA (Antinuclear Antibody)</h3>
-                        <p>Screens for autoimmune disorders</p>
-                    </div>
-                    <div class="test-price">₹1,200</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>CRP (C-Reactive Protein)</h3>
-                        <p>Measures inflammation levels</p>
-                    </div>
-                    <div class="test-price">₹500</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>HIV 1 & 2 Antibody</h3>
-                        <p>Screens for HIV infection</p>
-                    </div>
-                    <div class="test-price">₹400</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="tab-content" id="microbiology">
-            <div class="tests-grid">
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Urine Culture & Sensitivity</h3>
-                        <p>Identifies bacteria in urine</p>
-                    </div>
-                    <div class="test-price">₹600</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Stool Examination</h3>
-                        <p>Checks for parasites and infections</p>
-                    </div>
-                    <div class="test-price">₹400</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Blood Culture</h3>
-                        <p>Detects bloodstream infections</p>
-                    </div>
-                    <div class="test-price">₹1,200</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Widal Test</h3>
-                        <p>Detects typhoid fever</p>
-                    </div>
-                    <div class="test-price">₹500</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="tab-content" id="hormones">
-            <div class="tests-grid">
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Testosterone</h3>
-                        <p>Measures male hormone levels</p>
-                    </div>
-                    <div class="test-price">₹800</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Estradiol</h3>
-                        <p>Measures female hormone levels</p>
-                    </div>
-                    <div class="test-price">₹900</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Progesterone</h3>
-                        <p>Evaluates fertility and pregnancy</p>
-                    </div>
-                    <div class="test-price">₹900</div>
-                </div>
-                <div class="test-card">
-                    <div class="test-info">
-                        <h3>Prolactin</h3>
-                        <p>Measures prolactin hormone</p>
-                    </div>
-                    <div class="test-price">₹700</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- Packages Section -->
     <section class="packages" id="packages">
         <div class="section-title">
@@ -1461,6 +1304,7 @@
             <p>&copy; 2025 Novus Path Labs & Diagnostic Centre Pvt. Ltd. All rights reserved.</p>
         </div>
     </footer>
+<script src="assets/js/main.js"></script>
 
     <script>
         // Mobile Menu Toggle
@@ -1624,5 +1468,49 @@
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
     </script>
+<script>
+// SUPER SIMPLE - Highlight current page
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const pageTitle = document.title.toLowerCase();
+
+    // Reset all links
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Set active based on page title
+    if (pageTitle.includes('services')) {
+        document.querySelector('.nav-links a[href="Our Services.html"]').classList.add('active');
+    } 
+    else if (pageTitle.includes('about')) {
+        document.querySelector('.nav-links a[href="About us.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('test price list')) {  // Fixed typo here
+        document.querySelector('.nav-links a[href="Test Price List.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('contact')) {
+        document.querySelector('.nav-links a[href="Contact us.html"]').classList.add('active');
+    }
+    else {
+        // Default to Home
+        document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+    }
+
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinksElement = document.getElementById('navLinks');
+
+    if (mobileMenu && navLinksElement) {
+        mobileMenu.addEventListener('click', () => {
+            navLinksElement.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>

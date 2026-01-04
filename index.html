@@ -87,11 +87,13 @@
             width: 100%;
         }
 
-        .social-nav {
-            display: flex;
-            gap: 1rem;
-            margin-left: 1.5rem;
-        }
+       .social-nav {
+    display: flex;       /* keep icons in a row */
+    gap: 1rem;           /* space between icons */
+    transform: translateX(100px); /* move whole social icons container slightly left */
+}
+
+
 
         .social-nav a {
             width: 36px;
@@ -425,11 +427,19 @@
             align-items: center;
         }
 
-        .about-image {
-            position: relative;
-            opacity: 0;
-            transform: translateX(-30px);
-        }
+       .about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.vertical-video {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
 
         .about-image.animate {
             opacity: 1;
@@ -763,36 +773,34 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo" style="display:flex; align-items:center; gap:8px;">
-                <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
-                <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd. </span>
-            </div>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="Our Services.html">Services</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="Contact us.html">Contact</a></li>
-                <div class="social-nav">
-                    <a href="https://www.facebook.com/Novuspath" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
+<!-- Navigation (same as other pages) -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo" style="display:flex; align-items:center; gap:8px;">
+            <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
+            <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd.</span>
         </div>
-    </nav>
+
+        <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="Our Services.html">Services</a></li>
+    <li><a href="About us.html">About Us</a></li>
+    <li><a href="Test Price List.html">Test Price</a></li>
+    <li><a href="Contact us.html">Contact</a></li>
+</ul>
+        
+        <div class="social-nav">
+            <a href="https://www.facebook.com/Novuspath" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -824,170 +832,200 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Comprehensive laboratory testing with cutting-edge technology</p>
+   <!-- Services Section -->
+<section class="services" id="services">
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Comprehensive laboratory testing with cutting-edge technology</p>
+    </div>
+
+    <div class="services-grid">
+
+        <!-- Pathology -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-vial"></i>
+            </div>
+            <h3>Pathology</h3>
+            <p>Complete diagnostic pathology services for accurate disease detection</p>
+            <ul>
+                <li>Clinical Pathology</li>
+                <li>Histopathology</li>
+                <li>Cytology (FNAC, Pap Smear)</li>
+                <li>Urine & Stool Examination</li>
+            </ul>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-vial"></i>
-                </div>
-                <h3>Pathology</h3>
-                <p>Comprehensive blood chemistry analysis for accurate diagnosis</p>
-                <ul>
-                    <li>Lipid Profile</li>
-                    <li>Liver Function Tests</li>
-                    <li>Kidney Function Tests</li>
-                    <li>Thyroid Function Tests</li>
-                </ul>
-            </div>
 
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                <h3>Biochemistry</h3>
-                <p>Advanced blood cell analysis and coagulation studies</p>
-                <ul>
-                    <li>Complete Blood Count</li>
-                    <li>Hemoglobin Testing</li>
-                    <li>Blood Typing</li>
-                    <li>Coagulation Studies</li>
-                </ul>
+        <!-- Hematology -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-microscope"></i>
             </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-bacteria"></i>
-                </div>
-                <h3>Microbiology</h3>
-                <p>Identification of bacteria, viruses, and parasites</p>
-                <ul>
-                    <li>Culture & Sensitivity</li>
-                    <li>Viral Testing</li>
-                    <li>Parasite Detection</li>
-                    <li>Antibiotic Resistance</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-dna"></i>
-                </div>
-                <h3>Immunology</h3>
-                <p>DNA and RNA-based testing for precise results</p>
-                <ul>
-                    <li>PCR Testing</li>
-                    <li>Genetic Screening</li>
-                    <li>COVID-19 Testing</li>
-                    <li>Cancer Markers</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3>Hormone Assays</h3>
-                <p>Immune system analysis and antibody testing</p>
-                <ul>
-                    <li>Allergy Testing</li>
-                    <li>Autoimmune Panels</li>
-                    <li>Antibody Detection</li>
-                    <li>Immunity Assessment</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-syringe"></i>
-                </div>
-                <h3>Radiology / Ultrasound</h3>
-                <p>Comprehensive endocrine system evaluation</p>
-                <ul>
-                    <li>Thyroid Hormones</li>
-                    <li>Reproductive Hormones</li>
-                    <li>Diabetes Screening</li>
-                    <li>Stress Hormones</li>
-                </ul>
-            </div>
+            <h3>Hematology</h3>
+            <p>Advanced blood cell analysis and coagulation studies</p>
+            <ul>
+                <li>Complete Blood Count (CBC)</li>
+                <li>Hemoglobin</li>
+                <li>ESR</li>
+                <li>Blood Group & Rh Factor</li>
+            </ul>
         </div>
-        <div class="see-more-container">
-            <button class="see-more-btn" id="servicesSeeMore">
-                <i class="fas fa-arrow-right"></i> See More Services
-            </button>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <div class="about-image">
-                <iframe 
-                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/Novuspath/videos/1551436912082813/&show_text=0&width=560" 
-                    width="660" 
-                    height="415" 
-                    style="border:none;overflow:hidden" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
+        <!-- Biochemistry -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-flask"></i>
             </div>
-            <div class="about-text">
-                <h2>About Novus Path Labs & Diagnostic Centre</h2>
-                <p>"हाम्रो लक्ष्य — अत्याधुनिक प्रविधि र अनुभवी चिकित्सकहरूको सहकार्यमा सटीक रिपोर्ट र दिगो स्वास्थ्य समाधान प्रदान गर्नु हो।"</p>
-                <p>Established in 2073 B.S., Novus Path Labs is a modern diagnostic centre located in Lampati, Kalanki, dedicated to providing accurate, affordable, and accessible laboratory services........</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>ISO Certified</h4>
-                            <p>International quality standards compliance</p>
-                        </div>
+            <h3>Biochemistry</h3>
+            <p>Comprehensive biochemical analysis for organ function assessment</p>
+            <ul>
+                <li>Liver Function Test (LFT)</li>
+                <li>Kidney Function Test (RFT)</li>
+                <li>Lipid Profile</li>
+                <li>Blood Sugar (FBS, PPBS, HbA1c)</li>
+            </ul>
+        </div>
+
+        <!-- Microbiology -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-bacteria"></i>
+            </div>
+            <h3>Microbiology</h3>
+            <p>Detection and identification of infectious microorganisms</p>
+            <ul>
+                <li>Culture & Sensitivity</li>
+                <li>AFB / TB Testing</li>
+                <li>Gram Stain</li>
+                <li>Fungal & Parasitic Tests</li>
+            </ul>
+        </div>
+
+        <!-- Immunology / Serology -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-shield-virus"></i>
+            </div>
+            <h3>Immunology / Serology</h3>
+            <p>Immune system analysis and infectious disease testing</p>
+            <ul>
+                <li>HIV, HBsAg, Anti-HCV</li>
+                <li>Dengue / Typhoid</li>
+                <li>CRP, ASO, RA Factor</li>
+                <li>Allergy & Autoimmune Tests</li>
+            </ul>
+        </div>
+
+        <!-- Hormone / Endocrinology -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3>Hormone / Endocrinology</h3>
+            <p>Hormonal evaluation for metabolic and reproductive health</p>
+            <ul>
+                <li>Thyroid Profile (T3, T4, TSH)</li>
+                <li>Reproductive Hormones</li>
+                <li>Vitamin D & B12</li>
+                <li>Insulin & Cortisol</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="see-more-container">
+        <button class="see-more-btn" id="servicesSeeMore">
+            <i class="fas fa-arrow-right"></i> See More Services
+        </button>
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="about-content">
+
+        <!-- Video -->
+        <div class="about-image">
+            <video 
+                src="123.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+                class="vertical-video">
+            </video>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+            <h2>About Novus Path Labs & Diagnostic Centre</h2>
+
+            <p>
+                "हाम्रो लक्ष्य — अत्याधुनिक प्रविधि र अनुभवी चिकित्सकहरूको सहकार्यमा 
+                सटीक रिपोर्ट र दिगो स्वास्थ्य समाधान प्रदान गर्नु हो।"
+            </p>
+
+            <p>
+                Established in 2073 B.S., Novus Path Labs is a modern diagnostic centre 
+                located in Lampati, Kalanki, dedicated to providing accurate, affordable, 
+                and accessible laboratory services.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
                     </div>
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Quick Results</h4>
-                            <p>Fast turnaround time for all tests</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Expert Team</h4>
-                            <p>Highly qualified laboratory professionals</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Confidential</h4>
-                            <p>Complete privacy and data security</p>
-                        </div>
+                    <div class="feature-text">
+                        <h4>ISO Certified</h4>
+                        <p>International quality standards compliance</p>
                     </div>
                 </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Quick Results</h4>
+                        <p>Fast turnaround time for all tests</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Expert Team</h4>
+                        <p>Highly qualified laboratory professionals</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Confidential</h4>
+                        <p>Complete privacy and data security</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="see-more-container">
-            <button class="see-more-btn" id="aboutSeeMore">
-                <i class="fas fa-arrow-right"></i> Learn More About Us
-            </button>
-        </div>
-    </section>
+
+    </div>
+
+    <!-- Button -->
+    <div class="see-more-container">
+        <button class="see-more-btn" id="aboutSeeMore">
+            <i class="fas fa-arrow-right"></i> Learn More About Us
+        </button>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1013,6 +1051,8 @@
                     <div class="contact-details">
                         <h3>Phone Number</h3>
                         <p>01-5234659</p>
+                        <p>9860007296</p>
+                        <p>9851036028</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1099,138 +1139,221 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
+<script>
+// Mobile Menu Toggle
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.getElementById('navLinks');
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenu.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenu.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenu.querySelector('i').classList.add('fa-bars');
+            mobileMenu.querySelector('i').classList.remove('fa-times');
         });
+    });
+}
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+// Highlight current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinksAll = document.querySelectorAll('.nav-links a');
+    
+    navLinksAll.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
+
+/* ===============================
+   SMOOTH SCROLLING (FOR SECTIONS ON SAME PAGE)
+================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        
+        // Only handle internal page anchors (not external links)
+        if (targetId.startsWith('#') && targetId !== '#') {
+            const target = document.querySelector(targetId);
+            
+            if (target) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const yOffset = -80;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                
+                // Close mobile menu
+                if (navLinks) {
                     navLinks.classList.remove('active');
-                    mobileMenu.querySelector('i').classList.add('fa-bars');
-                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                    if (mobileMenu) {
+                        mobileMenu.querySelector('i').classList.add('fa-bars');
+                        mobileMenu.querySelector('i').classList.remove('fa-times');
+                    }
                 }
-            });
-        });
-
-        // Active Navigation on Scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
             }
+        }
+    });
+});
 
-            // Update active link
-            const sections = document.querySelectorAll('section');
-            const navLinksAll = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
+/* ===============================
+   NAVBAR SCROLL EFFECT
+================================ */
+const navbar = document.getElementById('navbar');
 
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+window.addEventListener('scroll', () => {
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+});
 
-        // Contact Form Handling
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
+/* ===============================
+   CONTACT FORM VALIDATION
+================================ */
+const contactForm = document.getElementById('contactForm');
+const successMessage = document.getElementById('successMessage');
+const errorMessage = document.getElementById('errorMessage');
 
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const message = document.getElementById('message').value.trim();
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            // Basic validation
-            if (name === '' || email === '' || phone === '' || message === '') {
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
-                return;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !phone || !message) {
+            showError('Please fill in all fields.');
+            return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            showError('Please enter a valid email address.');
+            return;
+        }
+
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        contactForm.reset();
+
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 4000);
+    });
+}
+
+function showError(msg) {
+    errorMessage.textContent = msg;
+    errorMessage.style.display = 'block';
+    successMessage.style.display = 'none';
+    setTimeout(() => {
+        errorMessage.style.display = 'none';
+    }, 3000);
+}
+
+/* ===============================
+   SEE MORE BUTTONS
+================================ */
+const servicesBtn = document.getElementById('servicesSeeMore');
+const aboutBtn = document.getElementById('aboutSeeMore');
+
+if (servicesBtn) {
+    servicesBtn.addEventListener('click', () => {
+        window.location.href = 'Our Services.html';
+    });
+}
+
+if (aboutBtn) {
+    aboutBtn.addEventListener('click', () => {
+        window.location.href = 'About us.html';
+    });
+}
+
+/* ===============================
+   INTERSECTION OBSERVER (ANIMATION)
+================================ */
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll(
+    '.service-card, .feature, .contact-item, .about-image, .about-text h2, .about-text p, .contact-form'
+).forEach(el => {
+    if (el) observer.observe(el);
+});
+</script>
+<script>
+// SUPER SIMPLE - Highlight current page
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const pageTitle = document.title.toLowerCase();
+
+    // Reset all links
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Set active based on page title
+    if (pageTitle.includes('services')) {
+        document.querySelector('.nav-links a[href="Our Services.html"]').classList.add('active');
+    } 
+    else if (pageTitle.includes('about')) {
+        document.querySelector('.nav-links a[href="About us.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('test price list')) {  // Fixed typo here
+        document.querySelector('.nav-links a[href="Test Price List.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('contact')) {
+        document.querySelector('.nav-links a[href="Contact us.html"]').classList.add('active');
+    }
+    else {
+        // Default to Home
+        document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+    }
+
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinksElement = document.getElementById('navLinks');
+
+    if (mobileMenu && navLinksElement) {
+        mobileMenu.addEventListener('click', () => {
+            navLinksElement.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
             }
-
-            // Email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                errorMessage.textContent = 'Please enter a valid email address.';
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                    errorMessage.textContent = 'Please fill in all fields correctly.';
-                }, 3000);
-                return;
-            }
-
-            // If validation passes, show success message
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
         });
+    }
+});
+</script>
 
-        // See More buttons functionality
-        document.getElementById('servicesSeeMore').addEventListener('click', function() {
-            window.location.href = 'Our Services.html';
-        });
-
-        document.getElementById('aboutSeeMore').addEventListener('click', function() {
-            window.location.href = 'About us.html';
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards and features
-        document.querySelectorAll('.service-card, .feature, .contact-item, .about-image, .about-text h2, .about-text p, .contact-form').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>

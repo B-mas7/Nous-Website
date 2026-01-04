@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novus Path Labs & Diagnostic Centre Pvt.Ltd. - Price List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --secondary: #00a8e8;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #00ff88;
+            --gradient: linear-gradient(135deg, #0066cc 0%, #00a8e8 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f5f7fa;
+        }
+ /* Navigation */
+        nav {
+            position: fixed;
+            left:0;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            left: 196px;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+       .social-nav {
+    display: flex;       /* keep icons in a row */
+    gap: 1rem;           /* space between icons */
+    transform: translateX(100px); /* move whole social icons container slightly left */
+}
+
+
+
+        .social-nav a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+.social-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-nav a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s;
+}
+
+.social-nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem 3rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Controls */
+        .controls {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 5px 20px rgba(0,102,204,0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .results-info {
+            font-weight: 600;
+            color: var(--dark);
+            background: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Price List Grid */
+        .price-list-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0rem;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .price-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .price-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .price-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .test-sn {
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .test-name {
+            flex: 1;
+            margin-left: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .test-price {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .test-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reporting-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .reporting-badge {
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .same-day {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .next-day {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .multiple-days {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .weeks {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .social-nav {
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-container {
+                max-width: 100%;
+            }
+
+            .price-list-container {
+                padding: 1rem;
+            }
+
+            .test-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .test-name {
+                margin-left: 0;
+            }
+
+            .test-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- Navigation (same as other pages) -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo" style="display:flex; align-items:center; gap:8px;">
+            <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
+            <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd.</span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="Our Services.html">Services</a></li>
+    <li><a href="About us.html">About Us</a></li>
+    <li><a href="Test Price List.html">Test Price</a></li>
+    <li><a href="Contact us.html">Contact</a></li>
+</ul>
+        
+        <div class="social-nav">
+            <a href="https://www.facebook.com/Novuspath" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Test Price List</h1>
+        <p>Comprehensive diagnostic test pricing with accurate reporting timelines. All prices are in Nepalese Rupees (NPR).</p>
+    </section>
+
+    <!-- Controls -->
+    <div class="controls">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search tests by name...">
+        </div>
+        <div class="results-info">
+            <span id="resultCount">351</span> Tests Available
+        </div>
+    </div>
+
+    <!-- Price List Grid -->
+    <div class="price-list-container">
+        <div class="price-grid" id="priceGrid">
+            <!-- Test cards will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-flask"></i> Novus Path Labs & Diagnostic Centre Pvt.Ltd.</h3>
+                <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="Our Services.html">Services</a>
+                <a href="About us.html">About Us</a>
+                <a href="price-list.html">Price List</a>
+                <a href="Contact us.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Lampati kalanki 14, Kathmandu, Nepal, 44600</p>
+                <p><i class="fas fa-phone"></i> 01-5234659, 9860007296, 9851036028</p>
+                <p><i class="fas fa-envelope"></i> novusnepal@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Sun-Fri: 7:00 AM - 7:00 PM, Sat: 7:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Novus Path Labs & Diagnostic Centre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Test data
+        const testData = [
+            { sn: "1", name: "Absolute Basophil Count", price: "200", reporting: "Same Day" },
+            { sn: "2", name: "Absolute Eosinophil Count", price: "200", reporting: "Same Day" },
+            { sn: "3", name: "Absolute Neutrophil Count", price: "200", reporting: "Same Day" },
+            { sn: "4", name: "Acid Phosphatase", price: "600", reporting: "Same Day" },
+            { sn: "5", name: "Urine/ACR(Albumin creatinine Ratio)", price: "1000", reporting: "Same Day" },
+            { sn: "6", name: "ADA (Adenosene Deaminase)", price: "1000", reporting: "Same Day" },
+            { sn: "7", name: "ADA (Adenosene Deaminase)", price: "1400", reporting: "Next day" },
+            { sn: "8", name: "ADA (Adenosene Deaminase)", price: "1500", reporting: "Next day" },
+            { sn: "9", name: "Aerobic Culture & sensitivity", price: "700", reporting: "2 days" },
+            { sn: "10", name: "AFB ( Acid fast) Stain", price: "400", reporting: "Same Day" },
+            { sn: "11", name: "AFB ( Ziehlneelsen )Stain", price: "400", reporting: "Same Day" },
+            { sn: "12", name: "AFB ( Ziehlneelsen )Stain", price: "400", reporting: "Same Day" },
+            { sn: "13", name: "AFB Culture & sensitivity", price: "500", reporting: "3 days" },
+            { sn: "14", name: "AFB Culture with identification", price: "1500", reporting: "6 Weeks" },
+            { sn: "15", name: "AFB Culture with identification", price: "1500", reporting: "6 Weeks" },
+            { sn: "16", name: "AFB Culture with identification", price: "1500", reporting: "6 Weeks" },
+            { sn: "17", name: "AFP ( Alpha Feto Protein )", price: "1600", reporting: "Same Day" },
+            { sn: "18", name: "Albert Stain", price: "300", reporting: "Same Day" },
+            { sn: "19", name: "Albert Stain", price: "300", reporting: "Same Day" },
+            { sn: "20", name: "Albumin", price: "250", reporting: "Same Day" },
+            { sn: "21", name: "Albumin", price: "250", reporting: "Same Day" },
+            { sn: "22", name: "Alkaline Phosphatase", price: "200", reporting: "Same Day" },
+            { sn: "23", name: "Alpha 1 anti trypsin", price: "4200", reporting: "Same Day" },
+            { sn: "24", name: "Amphetamine", price: "1200", reporting: "Same Day" },
+            { sn: "25", name: "Amylase", price: "500", reporting: "Same Day" },
+            { sn: "26", name: "AMH", price: "4000", reporting: "Same Day" },
+            { sn: "26A", name: "ANA/IFA", price: "2000", reporting: "3rd day" },
+            { sn: "27", name: "ANA", price: "1500", reporting: "Same Day" },
+            { sn: "28", name: "Anaerobic Culture & sensitivity", price: "700", reporting: "3rd day" },
+            { sn: "29", name: "Anti CCP(CYCLIC CITRULLINATED PEPTIDE)", price: "1800", reporting: "Same Day" },
+            { sn: "30", name: "Anti Phospolipid IgG", price: "2000", reporting: "Next day" },
+            { sn: "31", name: "Anti Phospolipid IgM", price: "2000", reporting: "Next day" },
+            { sn: "32", name: "Anti Thyroglobulin (Anti TG)", price: "3000", reporting: "Next day" },
+            { sn: "33", name: "Anti TPO", price: "1800", reporting: "Same Day" },
+            { sn: "34", name: "Anticardiolipin IgG", price: "1500", reporting: "3rd day" },
+            { sn: "35", name: "Anticardiolipin IgM", price: "1500", reporting: "3rd day" },
+            { sn: "36", name: "Anti-D Titre (Rh Antibody titre)", price: "1500", reporting: "Next day" },
+            { sn: "37", name: "APTT", price: "700", reporting: "Same Day" },
+            { sn: "38", name: "ASO Test", price: "400", reporting: "Same Day" },
+            { sn: "39", name: "ASO Titre (Quantitative)", price: "800", reporting: "Same Day" },
+            { sn: "40", name: "ASO Quantitaive", price: "800", reporting: "Same Day" },
+            { sn: "41", name: "Bacteriological Examinations of Beverages", price: "1300", reporting: "4 days" },
+            { sn: "42", name: "Bacteriological Examinations of Food", price: "1300", reporting: "4 days" },
+            { sn: "43", name: "Bacteriological Examinations of Milk", price: "1150", reporting: "4 days" },
+            { sn: "44", name: "Bacteriological Examinations of Water", price: "1150", reporting: "4 days" },
+            { sn: "45", name: "Barbiturates", price: "1050", reporting: "2 Day" },
+            { sn: "46", name: "Bence jones Protein", price: "350", reporting: "Same Day" },
+            { sn: "47", name: "Benzodiazepine", price: "1050", reporting: "Same Day" },
+            { sn: "48", name: "Beta 2 microglobulin", price: "1680", reporting: "Same Day" },
+            { sn: "49", name: "Beta HCG-TOTAL", price: "1500", reporting: "Same Day" },
+            { sn: "50", name: "Serum Bicarbonate", price: "1500", reporting: "3rd day" },
+            { sn: "51", name: "Bile -pigment", price: "150", reporting: "Same Day" },
+            { sn: "52", name: "Bile Acids Total", price: "3500", reporting: "Next day" },
+            { sn: "53", name: "Bilirubin (Total and Direct)", price: "250", reporting: "Same Day" },
+            { sn: "54", name: "BT( Bleeding Time )", price: "100", reporting: "Same Day" },
+            { sn: "55", name: "Blood Culture & Sensitivity", price: "500", reporting: "3 days" },
+            { sn: "56", name: "Blood Grouping Rh typing", price: "100", reporting: "Same Day" },
+            { sn: "57", name: "Brucella Antibody", price: "1200", reporting: "Same Day" },
+            { sn: "58", name: "Brucella Antigen", price: "1500", reporting: "Same Day" },
+            { sn: "59", name: "BUN (Blood Urea Nitrogen)", price: "500", reporting: "Same Day" },
+            { sn: "60", name: "CA-15.3", price: "2000", reporting: "Next day" },
+            { sn: "61", name: "CA-19.9", price: "2000", reporting: "Next day" },
+            { sn: "62", name: "CA-125", price: "2000", reporting: "Same Day" },
+            { sn: "63", name: "Calcium", price: "300", reporting: "Same Day" },
+            { sn: "64", name: "Calcium", price: "400", reporting: "Same Day" },
+            { sn: "65", name: "CAMP Test", price: "680", reporting: "Next day" },
+            { sn: "66", name: "C-ANCA", price: "2500", reporting: "Next day" },
+            { sn: "67", name: "CEA", price: "1500", reporting: "Same Day" },
+            { sn: "68", name: "CERULOPLASMIN", price: "1900", reporting: "2DAY" },
+            { sn: "69", name: "Chloride", price: "200", reporting: "Same Day" },
+            { sn: "70", name: "Chloride", price: "200", reporting: "Same Day" },
+            { sn: "71", name: "Cholesterol -Total", price: "200", reporting: "Same Day" },
+            { sn: "72", name: "Cholesterol -HDL", price: "500", reporting: "Same Day" },
+            { sn: "73", name: "Cholesterol-LDL", price: "500", reporting: "Same Day" },
+            { sn: "74", name: "Cholesterol-VLDL", price: "500", reporting: "Same Day" },
+            { sn: "75", name: "Chyle", price: "200", reporting: "Same Day" },
+            { sn: "76", name: "CT (Clotting Time)", price: "100", reporting: "Same Day" },
+            { sn: "77", name: "Cocaine", price: "1150", reporting: "Next day" },
+            { sn: "78", name: "C3 (Complement-3)", price: "1500", reporting: "Next day" },
+            { sn: "79", name: "C4 (Complement-4)", price: "1500", reporting: "Next day" },
+            { sn: "80", name: "Complete Blood Count (CBC)", price: "450", reporting: "Same Day" },
+            { sn: "81", name: "Coombs Test- Direct", price: "1200", reporting: "Next day" },
+            { sn: "82", name: "Coombs Test- Indirect", price: "1200", reporting: "Next day" },
+            { sn: "83", name: "Copper", price: "1050", reporting: "Same Day" },
+            { sn: "84", name: "Serum Cortisol", price: "2000", reporting: "Same Day" },
+            { sn: "85", name: "C-Peptide FASTING", price: "2000", reporting: "Next day" },
+            { sn: "86", name: "CPK NACK(Total)", price: "600", reporting: "Same Day" },
+            { sn: "87", name: "CPK-MB", price: "700", reporting: "Same Day" },
+            { sn: "88", name: "Creatinine", price: "250", reporting: "Same Day" },
+            { sn: "89", name: "Creatinine", price: "400", reporting: "Same Day" },
+            { sn: "90", name: "Creatinine Clearance Test", price: "400", reporting: "Same Day" },
+            { sn: "91", name: "CRP Quantitative(Titre)", price: "800", reporting: "Same Day" },
+            { sn: "92", name: "CRP Test", price: "400", reporting: "Same Day" },
+            { sn: "93", name: "CRP Titre", price: "800", reporting: "Same Day" },
+            { sn: "94", name: "CSF Culture & Sensitivity", price: "500", reporting: "3- 5 days" },
+            { sn: "95", name: "Cytomegalovirus IgM Ab", price: "680", reporting: "3rd day" },
+            { sn: "96", name: "Cytomegtalovirus IgG Ab", price: "680", reporting: "3rd day" },
+            { sn: "97", name: "Cardiolipin Antibody-IgM", price: "1200", reporting: "Next day" },
+            { sn: "98", name: "Cardiolipin Antibody-Igg", price: "1200", reporting: "Next day" },
+            { sn: "99", name: "D-dimer", price: "1700", reporting: "Same Day" },
+            { sn: "100", name: "Dengue (IgG,IgM,NS1)", price: "1000", reporting: "Same Day" },
+            { sn: "101", name: "Differential Leucocyte Count (DLC)", price: "200", reporting: "Same Day" },
+            { sn: "102", name: "ANTI-ds-DNA", price: "2000", reporting: "Next day" },
+            { sn: "103", name: "Echinococcus IgG Ab (Hydatid disease)", price: "2000", reporting: "2 days" },
+            { sn: "104", name: "Electrophoresis", price: "3600", reporting: "10 days" },
+            { sn: "105", name: "Erythrocyte sedimentation Rate (ESR)", price: "100", reporting: "Same Day" },
+            { sn: "106", name: "Endometrium culture for mycobacterium", price: "2000", reporting: "7 weeks" },
+            { sn: "107", name: "E2 (Estradiol)", price: "2000", reporting: "Same Day" },
+            { sn: "108", name: "Examination of Body Fluid", price: "800", reporting: "2 days" },
+            { sn: "109", name: "Examination of vaginal discharge CLUE", price: "500", reporting: "Next day" },
+            { sn: "110", name: "Examination Trichomonas & Candida", price: "500", reporting: "Next day" },
+            { sn: "111", name: "Exudates Culture & Sensitivity", price: "400", reporting: "3 days" },
+            { sn: "112", name: "Ferritin", price: "1300", reporting: "Same Day" },
+            { sn: "113", name: "Fibrinogen Degradation Product (FDP)", price: "1780", reporting: "Same Day" },
+            { sn: "114", name: "Fibrinogen level", price: "2000", reporting: "Next day" },
+            { sn: "115", name: "Filaria Ab(Igm/IgG)", price: "1200", reporting: "Same Day" },
+            { sn: "116", name: "Filarial Parasite detection", price: "300", reporting: "Same Day" },
+            { sn: "117", name: "Filarial Parasite detection", price: "300", reporting: "Same Day" },
+            { sn: "118", name: "Folic Acid", price: "2000", reporting: "Next day" },
+            { sn: "119", name: "Fontana Stain", price: "185", reporting: "Same Day" },
+            { sn: "120", name: "Fontana Stain", price: "185", reporting: "Same Day" },
+            { sn: "121", name: "Formal gel (Aldehyde) Test", price: "150", reporting: "Same Day" },
+            { sn: "122", name: "FSH", price: "1500", reporting: "Same Day" },
+            { sn: "123", name: "Fungal Complete Study", price: "1000", reporting: "5 days" },
+            { sn: "124", name: "Fungal Complete Study", price: "1000", reporting: "5 days" },
+            { sn: "125", name: "Fungal Complete Study", price: "1000", reporting: "5 days" },
+            { sn: "126", name: "Fungal Culture & Sensitivity", price: "700", reporting: "5 days" },
+            { sn: "127", name: "Fungal Culture & Sensitivity", price: "700", reporting: "5 days" },
+            { sn: "128", name: "Fungal Germ tube test", price: "150", reporting: "Next day" },
+            { sn: "129", name: "Fungal Germ tube test", price: "150", reporting: "Next day" },
+            { sn: "130", name: "Fungal Germ tube test", price: "150", reporting: "Next day" },
+            { sn: "131", name: "Fungal KOH Preparation", price: "300", reporting: "Same Day" },
+            { sn: "132", name: "Fungal KOH Preparation", price: "300", reporting: "Same Day" },
+            { sn: "133", name: "Fungal KOH Preparation", price: "300", reporting: "Same Day" },
+            { sn: "134", name: "Fungus Culture", price: "800", reporting: "5 days" },
+            { sn: "135", name: "Fungus Culture", price: "730", reporting: "5 days" },
+            { sn: "136", name: "FungusCulture", price: "630", reporting: "5 days" },
+            { sn: "137", name: "G6PD", price: "1700", reporting: "Next day" },
+            { sn: "138", name: "Gamma GT", price: "600", reporting: "Same Day" },
+            { sn: "139", name: "Gastric biopsy Culture for H. Pylori", price: "1460", reporting: "6week" },
+            { sn: "140", name: "Gastric biopsy", price: "1460", reporting: "6 Weeks" },
+            { sn: "141", name: "Globulin", price: "400", reporting: "Same Day" },
+            { sn: "142", name: "GTT/PREGNANCY", price: "400", reporting: "Same Day" },
+            { sn: "143", name: "Glucose FASTING", price: "60", reporting: "Same Day" },
+            { sn: "144", name: "Glucose GCT", price: "150", reporting: "Same Day" },
+            { sn: "145", name: "Glucose PP", price: "60", reporting: "Same Day" },
+            { sn: "146", name: "Glucose Pre-dinner", price: "100", reporting: "Same Day" },
+            { sn: "147", name: "Glucose RANDOM", price: "60", reporting: "Same Day" },
+            { sn: "148", name: "Glycerol lysis time", price: "360", reporting: "Same Day" },
+            { sn: "149", name: "Gram Stain", price: "400", reporting: "Same Day" },
+            { sn: "150", name: "Growth Hormone", price: "2000", reporting: "Next day" },
+            { sn: "151", name: "Haemoglobin (Hb)", price: "100", reporting: "Same Day" },
+            { sn: "152", name: "Haptoglobin", price: "2520", reporting: "Same Day" },
+            { sn: "153", name: "HAV- IgG", price: "1700", reporting: "3rd day" },
+            { sn: "154", name: "HAV -Total", price: "1700", reporting: "3rd day" },
+            { sn: "155", name: "HbA1C-Glycosylated Hb", price: "900", reporting: "Same Day" },
+            { sn: "156", name: "(H-Pylori)Helicobacter Pylori Ag", price: "1200", reporting: "Same Day" },
+            { sn: "157", name: "(H-Pylori)Helicobacter Pylori Ab", price: "1000", reporting: "Same Day" },
+            { sn: "158", name: "Hemosiderine", price: "185", reporting: "Next day" },
+            { sn: "159", name: "Hepatitis A (Total)Ab", price: "1675", reporting: "2 Day" },
+            { sn: "160", name: "Hepatitis A IgG.Ab", price: "1675", reporting: "Same Day" },
+            { sn: "161", name: "Hepatitis A IgM.Ab", price: "1675", reporting: "Same Day" },
+            { sn: "162", name: "Hepatitis B Core IgM (HBcIgM )", price: "1675", reporting: "2 Day" },
+            { sn: "163", name: "Hepatitis B Core IgG (HBcIgG)", price: "1675", reporting: "2 Day" },
+            { sn: "164", name: "Hepatitis B e Antibody (HBeAb)", price: "1360", reporting: "2 Day" },
+            { sn: "165", name: "Hepatitis B e Antigen (HBeAg)", price: "1360", reporting: "Same Day" },
+            { sn: "166", name: "Hepatitis B Surface antibody (HBsAb)", price: "1360", reporting: "Same Day" },
+            { sn: "167", name: "(HBsAg)-Rapid Test", price: "400", reporting: "Same Day" },
+            { sn: "168", name: "Hepatitis B Surface antigen Confirmatory", price: "1675", reporting: "Next day" },
+            { sn: "169", name: "Hepatitis C antibody (Anti-HCV)", price: "650", reporting: "Same Day" },
+            { sn: "170", name: "HCV Elisa", price: "1675", reporting: "Same Day" },
+            { sn: "171", name: "Hepatitis E IgM antibody (HEV IgM)", price: "1500", reporting: "2 days" },
+            { sn: "172", name: "HIV-I & II antibody (Rapid)", price: "550", reporting: "Same Day" },
+            { sn: "173", name: "HIV-I & II Elisa", price: "1200", reporting: "Next day" },
+            { sn: "174", name: "Herpex simplex Virus 1 IgG", price: "1000", reporting: "2 days" },
+            { sn: "175", name: "Herpex simplex Virus 1 IgM", price: "1000", reporting: "2 days" },
+            { sn: "176", name: "Herpex simplex Virus 2 IgG", price: "1000", reporting: "2 days" },
+            { sn: "177", name: "Herpex simplex Virus 2 IgM", price: "1000", reporting: "2 days" },
+            { sn: "178", name: "HSV PCR", price: "5700", reporting: "10 days" },
+            { sn: "179", name: "HUMAN PAPILLOMAVIRUS (HPV)", price: "3500", reporting: "3-5 days" },
+            { sn: "180", name: "HLA B27 PCR", price: "4500", reporting: "5 DAYS" },
+            { sn: "181", name: "HVS Culture & Sensitivity", price: "520", reporting: "3 days" },
+            { sn: "182", name: "Immunoglobulin E IgE", price: "2000", reporting: "Same Day" },
+            { sn: "183", name: "Immunoglobulin G", price: "1500", reporting: "Same Day" },
+            { sn: "184", name: "Immunoglubulin M", price: "1500", reporting: "Same Day" },
+            { sn: "185", name: "Insuluin Fasting", price: "2000", reporting: "Next day" },
+            { sn: "186", name: "Iron", price: "800", reporting: "Same Day" },
+            { sn: "187", name: "Iron Profile with FERRITINE", price: "2500", reporting: "Same Day" },
+            { sn: "188", name: "Ketone bodies", price: "150", reporting: "Same Day" },
+            { sn: "189", name: "KFT SCREEN", price: "800", reporting: "Same Day" },
+            { sn: "190", name: "RENAL/Kidney Function Test", price: "800", reporting: "Same Day" },
+            { sn: "191", name: "LDH", price: "1000", reporting: "Same Day" },
+            { sn: "192", name: "LE Cells", price: "450", reporting: "Next Day" },
+            { sn: "193", name: "Leishmania antibody( K- 39 )Kalazar", price: "1100", reporting: "Same Day" },
+            { sn: "194", name: "Leptospira Ab(IgG/IgM)", price: "1200", reporting: "Same Day" },
+            { sn: "195", name: "Leptospira Ab(IgG", price: "1200", reporting: "Same Day" },
+            { sn: "196", name: "LH", price: "1500", reporting: "Same Day" },
+            { sn: "197", name: "Lipase", price: "1000", reporting: "Same Day" },
+            { sn: "198", name: "Lithium", price: "1200", reporting: "Same Day" },
+            { sn: "199", name: "Lipid Profile", price: "800", reporting: "Same Day" },
+            { sn: "200", name: "LFT SCREEN (8 PARA)", price: "1200", reporting: "Same Day" },
+            { sn: "201", name: "Liver Function Test LFT (5PARA)", price: "800", reporting: "Same Day" },
+            { sn: "202", name: "Lupus Anticoagulant", price: "4000", reporting: "Same Day" },
+            { sn: "203", name: "lyme disease IgG& IgM", price: "12000", reporting: "10 days" },
+            { sn: "204", name: "Magnesium", price: "500", reporting: "Same Day" },
+            { sn: "205", name: "Malarial Antigen Detection", price: "625", reporting: "Same Day" },
+            { sn: "206", name: "Malignant Cells(sputum)", price: "800", reporting: "Same Day" },
+            { sn: "207", name: "Malarial Parasite(Direct Smear)", price: "200", reporting: "Same Day" },
+            { sn: "208", name: "Mantoux Test ( Tuberculin test)", price: "200", reporting: "2 - 3 days" },
+            { sn: "209", name: "Mean Corpuscular Haemoglobin (MCH)", price: "100", reporting: "Same Day" },
+            { sn: "210", name: "(MCHC)", price: "100", reporting: "Same Day" },
+            { sn: "211", name: "Mean Corpuscular Volume ( MCV )", price: "100", reporting: "Same Day" },
+            { sn: "212", name: "Microaerophilic Culture & Sensitivity", price: "680", reporting: "3 days" },
+            { sn: "213", name: "Urine Microalbumin", price: "1000", reporting: "Same Day" },
+            { sn: "214", name: "Microalbumin/Creatinine", price: "1450", reporting: "Same Day" },
+            { sn: "215", name: "MICRO FILERIA ANTIBODY", price: "2000", reporting: "Same Day" },
+            { sn: "216", name: "Mycobacterium Tuberculosis Ab IgA", price: "1200", reporting: "2 days" },
+            { sn: "217", name: "Mycobacterium Tuberculosis Ab IgG", price: "1200", reporting: "2 days" },
+            { sn: "218", name: "Mycobacterium Tuberculosis Ab IgM", price: "1200", reporting: "2 days" },
+            { sn: "219", name: "Mycodot(MycoTB Ab IgG&IgM)", price: "1200", reporting: "2 days" },
+            { sn: "220", name: "MYOGLOBIN", price: "1400", reporting: "3 days" },
+            { sn: "221", name: "MYOGLOBIN", price: "2200", reporting: "3 days" },
+            { sn: "222", name: "NIPT", price: "30000", reporting: "10 days" },
+            { sn: "223", name: "Occult Blood", price: "150", reporting: "Same Day" },
+            { sn: "224", name: "Oestrogen", price: "1500", reporting: "Same Day" },
+            { sn: "225", name: "URINE FOR CYTOLOGY", price: "1500", reporting: "Next day" },
+            { sn: "226", name: "Urine Osmolarity", price: "1500", reporting: "Next day" },
+            { sn: "227", name: "Ova count(Intestinal Parasistic ova)", price: "400", reporting: "Same Day" },
+            { sn: "228", name: "Packed Cell Volume (PCV/HCT)", price: "100", reporting: "Same Day" },
+            { sn: "229", name: "P-ANCA", price: "2500", reporting: "Next day" },
+            { sn: "230", name: "Peripheral Blood Smear (PBS)", price: "700", reporting: "Same Day" },
+            { sn: "231", name: "Phenobarbitol", price: "1100", reporting: "3rd day" },
+            { sn: "232", name: "Phenytoin", price: "1340", reporting: "3rd day" },
+            { sn: "233", name: "Phosphorus", price: "300", reporting: "Same Day" },
+            { sn: "234", name: "Phosphorus", price: "300", reporting: "Same Day" },
+            { sn: "235", name: "Platelets Count", price: "150", reporting: "Same Day" },
+            { sn: "236", name: "Porphobilinogen", price: "100", reporting: "Same Day" },
+            { sn: "237", name: "Potassium", price: "250", reporting: "Same Day" },
+            { sn: "238", name: "Potassium", price: "300", reporting: "Same Day" },
+            { sn: "239", name: "Pregnancy Test (Detection of β HCG)", price: "150", reporting: "Same Day" },
+            { sn: "240", name: "TOTAL β HCG", price: "1500", reporting: "Same Day" },
+            { sn: "241", name: "Progesterone", price: "1800", reporting: "Same Day" },
+            { sn: "242", name: "Prolactin", price: "1500", reporting: "Same Day" },
+            { sn: "243", name: "24 HRS URINE PROTEIN", price: "600", reporting: "Same Day" },
+            { sn: "244", name: "Protein(Total)", price: "250", reporting: "Same Day" },
+            { sn: "245", name: "Protein(Total)", price: "300", reporting: "Same Day" },
+            { sn: "246", name: "Protein(Total)", price: "500", reporting: "Same Day" },
+            { sn: "247", name: "Protein-Creat ratio (P/C Ratio)", price: "1000", reporting: "Same Day" },
+            { sn: "248", name: "Protein(Albumin)Spot", price: "700", reporting: "Same Day" },
+            { sn: "249", name: "Prothrombin Time ( PT/INR)", price: "550", reporting: "Same Day" },
+            { sn: "250", name: "PSA (Total)", price: "1200", reporting: "Same Day" },
+            { sn: "251", name: "PSA (Free)", price: "2000", reporting: "Same Day" },
+            { sn: "252", name: "PARATHYROID HORMONE (IPTH)", price: "2500", reporting: "Next day" },
+            { sn: "253", name: "Pus Culture & sensitivity", price: "500", reporting: "3 days" },
+            { sn: "254", name: "Ra Factor Quantitative", price: "600", reporting: "Same Day" },
+            { sn: "255", name: "Ra Factor Test", price: "400", reporting: "Same Day" },
+            { sn: "256", name: "Ra Factor Titre", price: "600", reporting: "Same Day" },
+            { sn: "257", name: "Red Blood cell count ( RBC )", price: "100", reporting: "Same Day" },
+            { sn: "258", name: "Reducing substance(Sugar)", price: "200", reporting: "Same Day" },
+            { sn: "259", name: "Reducing substance(Sugar)", price: "200", reporting: "Same Day" },
+            { sn: "260", name: "Reticulocyte count", price: "300", reporting: "Same Day" },
+            { sn: "261", name: "RPR (VDRL) Test", price: "300", reporting: "Same Day" },
+            { sn: "262", name: "RPR (VDRL) Titre", price: "1000", reporting: "Same Day" },
+            { sn: "263", name: "Rubella IgG Ab", price: "1000", reporting: "Next day" },
+            { sn: "264", name: "Rubella IgM Ab", price: "1000", reporting: "Next day" },
+            { sn: "265", name: "RT-PCR", price: "3000", reporting: "3rd day" },
+            { sn: "266", name: "Salmonella IgG,IgM", price: "1300", reporting: "Same Day" },
+            { sn: "267", name: "Salmonella aggutination test (WIDAL)", price: "400", reporting: "Same Day" },
+            { sn: "268", name: "Semen Analysis", price: "500", reporting: "Same Day" },
+            { sn: "269", name: "Semen Analysis", price: "500", reporting: "Same Day" },
+            { sn: "270", name: "Semen Culture & Sensitivity", price: "500", reporting: "3rd day" },
+            { sn: "271", name: "SGOT (AST)", price: "200", reporting: "Same Day" },
+            { sn: "272", name: "SGPT (ALT)", price: "200", reporting: "Same Day" },
+            { sn: "273", name: "Sickle cell Study", price: "350", reporting: "Next day" },
+            { sn: "274", name: "Sodium/Potassium Na/k", price: "400", reporting: "Same Day" },
+            { sn: "275", name: "Sodium/Na", price: "300", reporting: "Same Day" },
+            { sn: "276", name: "Specific gravity", price: "800", reporting: "Same Day" },
+            { sn: "277", name: "Stone Analysis", price: "1470", reporting: "Next day" },
+            { sn: "278", name: "SPUTUM Culture & Sensitivity", price: "500", reporting: "3 days" },
+            { sn: "279", name: "Stool Culture & Sensitivity", price: "500", reporting: "3 days" },
+            { sn: "280", name: "Stool Routine", price: "100", reporting: "Same Day" },
+            { sn: "281", name: "Swab Culture & Sensitivity(Aerobic)", price: "500", reporting: "3 days" },
+            { sn: "282", name: "Scrub typhus AG/AB", price: "1200", reporting: "Same Day" },
+            { sn: "283", name: "Stool Bilirubin", price: "500", reporting: "Same Day" },
+            { sn: "284", name: "TB-GOLD (QuantiFERON)(IGRA)", price: "4500", reporting: "3 days" },
+            { sn: "285", name: "TB SPOT(PCR)", price: "4000", reporting: "10 days" },
+            { sn: "286", name: "T3 Free", price: "500", reporting: "Same Day" },
+            { sn: "287", name: "T4 Free", price: "500", reporting: "Same Day" },
+            { sn: "288", name: "TSH", price: "500", reporting: "Same Day" },
+            { sn: "289", name: "Thyroid Function Test (TFT)-TOTAL", price: "1050", reporting: "Same Day" },
+            { sn: "290", name: "Thyroid Function Test (TFT)-FREE", price: "1050", reporting: "Same Day" },
+            { sn: "291", name: "TIBC", price: "800", reporting: "Same Day" },
+            { sn: "292", name: "TORCH IgG Ab", price: "2500", reporting: "3rd Day" },
+            { sn: "293", name: "TORCH IgM Ab", price: "2500", reporting: "3rd Day" },
+            { sn: "294", name: "TORCH Profile", price: "4500", reporting: "3rd Day" },
+            { sn: "295", name: "Toxoplasma IgG Ab", price: "900", reporting: "3rd Day" },
+            { sn: "296", name: "Toxoplasma IgM Ab", price: "900", reporting: "3rd Day" },
+            { sn: "297", name: "TPHA Test", price: "600", reporting: "Same Day" },
+            { sn: "298", name: "TPHA Titre", price: "1800", reporting: "Same Day" },
+            { sn: "299", name: "Testosterone (Total)", price: "2000", reporting: "Same Day" },
+            { sn: "300", name: "Testosterone (Free)", price: "2500", reporting: "Same Day" },
+            { sn: "301", name: "THYROGLOBULN", price: "4000", reporting: "Next day" },
+            { sn: "302", name: "Troponin - I", price: "1000", reporting: "Same Day" },
+            { sn: "303", name: "Urea", price: "200", reporting: "Same Day" },
+            { sn: "304", name: "Urea", price: "300", reporting: "Same Day" },
+            { sn: "305", name: "Uric Acid", price: "250", reporting: "Same Day" },
+            { sn: "306", name: "Urine Routine", price: "100", reporting: "Same Day" },
+            { sn: "307", name: "Urine Culture & Sensitivity", price: "500", reporting: "2 days" },
+            { sn: "308", name: "Urobilinogen", price: "100", reporting: "Same Day" },
+            { sn: "309", name: "Urine Osmolarity", price: "1500", reporting: "Next day" },
+            { sn: "310", name: "Vanillyl Mandelic Acid ( VMA )", price: "3050", reporting: "2 Days" },
+            { sn: "311", name: "Vitamin B-12", price: "1600", reporting: "Same Day" },
+            { sn: "312", name: "Vitamin D-3 (OH) LEVEL", price: "2500", reporting: "Same Day" },
+            { sn: "313", name: "ZINC", price: "4500", reporting: "8-10days" },
+            { sn: "314", name: "DHEAS", price: "2000", reporting: "Same Day" },
+            { sn: "315", name: "Malignant cytology", price: "1200", reporting: "Next day" },
+            { sn: "316", name: "Large Specimen ( V. Major )", price: "4000", reporting: "7-10 days" },
+            { sn: "317", name: "Large Specimen ( V. Major )", price: "4000", reporting: "7-10 days" },
+            { sn: "318", name: "Large Specimen ( Major )", price: "3500", reporting: "7-10 days" },
+            { sn: "319", name: "Large Specimen ( Major )", price: "3500", reporting: "7-10  days" },
+            { sn: "320", name: "Intermediate Specimen", price: "2000", reporting: "7-10 days" },
+            { sn: "321", name: "Intermediate Specimen", price: "2000", reporting: "7-10 days" },
+            { sn: "322", name: "Small Specimen", price: "1500", reporting: "7-10 days" },
+            { sn: "323", name: "Small Specimen", price: "1500", reporting: "7-10  days" },
+            { sn: "324", name: "Up to 2 Slides", price: "500", reporting: "Next day" },
+            { sn: "325", name: "More than Two Slides", price: "750", reporting: "Next day" },
+            { sn: "326", name: "Upto 2 Block", price: "800", reporting: "2 days" },
+            { sn: "327", name: "More than Two Block", price: "1000", reporting: "2 days" },
+            { sn: "328", name: "FNAC", price: "1500", reporting: "Next day" },
+            { sn: "329", name: "PAP Smear", price: "800", reporting: "Next day" },
+            { sn: "330", name: "LIQUID BASE CYTOLOGY LBC", price: "2000", reporting: "3rd day" },
+            { sn: "331", name: "DUAL MARKER", price: "4500", reporting: "7-10 days" },
+            { sn: "332", name: "TRIPLE MARKER", price: "5000", reporting: "7-10 days" },
+            { sn: "333", name: "QUADRUPLE MARKER", price: "6000", reporting: "7-10 days" },
+            { sn: "334", name: "ANTI PRO BNP", price: "4500", reporting: "Next day" },
+            { sn: "335", name: "ENA PROFILE (18 Parameter)", price: "5500", reporting: "Next day" },
+            { sn: "336", name: "ANA PROFILE (18 Parameter)", price: "5500", reporting: "Next day" },
+            { sn: "337", name: "ACTH", price: "3000", reporting: "Next day" },
+            { sn: "338", name: "PRO-CALCITONIN", price: "4500", reporting: "2-3 days" },
+            { sn: "339", name: "NT-proBNP", price: "4500", reporting: "Next day" },
+            { sn: "340", name: "TSH R ANTIBODY(TRAB)", price: "5000", reporting: "Next day" },
+            { sn: "341", name: "Inhibin A", price: "4000", reporting: "7-10  days" },
+            { sn: "342", name: "Inhibin B", price: "4500", reporting: "7-10 DAYS" },
+            { sn: "343", name: "GAD 65", price: "5000", reporting: "Next day" },
+            { sn: "344", name: "ANTI BETA 2 GLYCOPROTEIN IgG", price: "2600", reporting: "Next day" },
+            { sn: "345", name: "ANTI BETA 2 GLYCOPROTEIN IgM", price: "2600", reporting: "Next day" },
+            { sn: "346", name: "ANTI CARDIOLIPIN IgG/IgM", price: "5000", reporting: "Next day" },
+            { sn: "347", name: "HB ELECTROPHOROSIS", price: "3000", reporting: "3- 5 days" },
+            { sn: "348", name: "APLA PANEL WITH OUT LUPUS", price: "8500", reporting: "3- 5 days" },
+            { sn: "349", name: "APLA PANEL WITH LUPUS", price: "12000", reporting: "3-5days" },
+            { sn: "350", name: "Allergy Pannel (Food&Inhalation)", price: "6000", reporting: "Next day" },
+            { sn: "351", name: "ACE LEVEL", price: "2000", reporting: "Next day" }
+        ];
+
+        // Function to get badge class based on reporting time
+        function getBadgeClass(reporting) {
+            const lower = reporting.toLowerCase();
+            if (lower.includes("same day")) return "same-day";
+            if (lower.includes("next day") || lower.includes("nextday")) return "next-day";
+            if (lower.includes("week") || lower.includes("weeks")) return "weeks";
+            return "multiple-days";
+        }
+
+        // Function to render price cards in two columns
+        function renderPriceCards(data) {
+            const priceGrid = document.getElementById('priceGrid');
+            priceGrid.innerHTML = '';
+            
+            const leftColumn = document.createElement('div');
+            leftColumn.className = 'price-column';
+            
+            const rightColumn = document.createElement('div');
+            rightColumn.className = 'price-column';
+            
+            // Split data between two columns
+            const midPoint = Math.ceil(data.length / 2);
+            const leftData = data.slice(0, midPoint);
+            const rightData = data.slice(midPoint);
+            
+            // Render left column
+            leftData.forEach((test, index) => {
+                const badgeClass = getBadgeClass(test.reporting);
+                const card = document.createElement('div');
+                card.className = 'price-card animate';
+                card.style.animationDelay = `${index * 0.05}s`;
+                
+                card.innerHTML = `
+                    <div class="test-header">
+                        <div class="test-sn">${test.sn}</div>
+                        <div class="test-name">${test.name}</div>
+                        <div class="test-price">NPR ${test.price}</div>
+                    </div>
+                    <div class="test-details">
+                        <div class="reporting-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Reporting: </span>
+                            <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
+                        </div>
+                    </div>
+                `;
+                
+                leftColumn.appendChild(card);
+            });
+            
+            // Render right column
+            rightData.forEach((test, index) => {
+                const badgeClass = getBadgeClass(test.reporting);
+                const card = document.createElement('div');
+                card.className = 'price-card animate';
+                card.style.animationDelay = `${(index + leftData.length) * 0.05}s`;
+                
+                card.innerHTML = `
+                    <div class="test-header">
+                        <div class="test-sn">${test.sn}</div>
+                        <div class="test-name">${test.name}</div>
+                        <div class="test-price">NPR ${test.price}</div>
+                    </div>
+                    <div class="test-details">
+                        <div class="reporting-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Reporting: </span>
+                            <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
+                        </div>
+                    </div>
+                `;
+                
+                rightColumn.appendChild(card);
+            });
+            
+            priceGrid.appendChild(leftColumn);
+            priceGrid.appendChild(rightColumn);
+            
+            // Update result count
+            document.getElementById('resultCount').textContent = data.length;
+        }
+
+        // Initial render
+        renderPriceCards(testData);
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                renderPriceCards(testData);
+                return;
+            }
+            
+            const filteredData = testData.filter(test => 
+                test.name.toLowerCase().includes(searchTerm) || 
+                test.sn.toLowerCase().includes(searchTerm)
+            );
+            
+            renderPriceCards(filteredData);
+        });
+
+        // Navigation Scripts
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileMenu && navLinks) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenu.querySelector('i').classList.add('fa-bars');
+                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                });
+            });
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Highlight current page
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split("/").pop();
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+            
+            navLinksAll.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || 
+                    (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+<script>
+// SUPER SIMPLE - Highlight current page
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const pageTitle = document.title.toLowerCase();
+
+    // Reset all links
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Set active based on page title
+    if (pageTitle.includes('services')) {
+        document.querySelector('.nav-links a[href="Our Services.html"]').classList.add('active');
+    } 
+    else if (pageTitle.includes('about')) {
+        document.querySelector('.nav-links a[href="About us.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('test price list')) {  // Fixed typo here
+        document.querySelector('.nav-links a[href="Test Price List.html"]').classList.add('active');
+    }
+    else if (pageTitle.includes('contact')) {
+        document.querySelector('.nav-links a[href="Contact us.html"]').classList.add('active');
+    }
+    else {
+        // Default to Home
+        document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+    }
+
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinksElement = document.getElementById('navLinks');
+
+    if (mobileMenu && navLinksElement) {
+        mobileMenu.addEventListener('click', () => {
+            navLinksElement.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>

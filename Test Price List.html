@@ -28,10 +28,9 @@
             overflow-x: hidden;
             background-color: #f5f7fa;
         }
- /* Navigation */
+     /* Navigation */
         nav {
             position: fixed;
-            left:0;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
@@ -54,6 +53,24 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo span {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark);
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -63,11 +80,11 @@
 
         .nav-links a {
             text-decoration: none;
-            left: 196px;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -86,13 +103,10 @@
             width: 100%;
         }
 
-       .social-nav {
-    display: flex;       /* keep icons in a row */
-    gap: 1rem;           /* space between icons */
-    transform: translateX(100px); /* move whole social icons container slightly left */
-}
-
-
+        .social-nav {
+            display: flex;
+            gap: 1rem;
+        }
 
         .social-nav a {
             width: 36px;
@@ -116,28 +130,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--dark);
+            z-index: 1001;
         }
-.social-nav {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-nav a {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: all 0.3s;
-}
-
-.social-nav a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
 
         /* Page Header */
         .page-header {
@@ -564,9 +558,7 @@
                 <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -574,15 +566,15 @@
                 <a href="index.html">Home</a>
                 <a href="Our Services.html">Services</a>
                 <a href="About us.html">About Us</a>
-                <a href="price-list.html">Price List</a>
+                <a href="Test Price List.html">Test Price</a>
                 <a href="Contact us.html">Contact</a>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Lampati kalanki 14, Kathmandu, Nepal, 44600</p>
-                <p><i class="fas fa-phone"></i> 01-5234659, 9860007296, 9851036028</p>
+                <p><i class="fas fa-phone"></i> 01-5234659, 9860007296, 9808324145</p>
                 <p><i class="fas fa-envelope"></i> novusnepal@gmail.com</p>
-                <p><i class="fas fa-clock"></i> Sun-Fri: 7:00 AM - 7:00 PM, Sat: 7:00 AM - 2:00 PM</p>
+                <p><i class="fas fa-clock"></i> 7:00 AM - 7:00 PM</p>
             </div>
         </div>
         <div class="footer-bottom">

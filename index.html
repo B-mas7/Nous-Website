@@ -32,7 +32,6 @@
         /* Navigation */
         nav {
             position: fixed;
-            left:0;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
@@ -55,6 +54,24 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo span {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark);
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -64,11 +81,11 @@
 
         .nav-links a {
             text-decoration: none;
-            left: 196px;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -87,13 +104,10 @@
             width: 100%;
         }
 
-       .social-nav {
-    display: flex;       /* keep icons in a row */
-    gap: 1rem;           /* space between icons */
-    transform: translateX(100px); /* move whole social icons container slightly left */
-}
-
-
+        .social-nav {
+            display: flex;
+            gap: 1rem;
+        }
 
         .social-nav a {
             width: 36px;
@@ -117,12 +131,14 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--dark);
+            z-index: 1001;
         }
 
         /* Hero Section */
         .hero {
             margin-top: 80px;
             height: 85vh;
+            min-height: 600px;
             position: relative;
             display: flex;
             align-items: center;
@@ -137,7 +153,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('Novus.jpg') center center / cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center center / cover no-repeat;
             opacity: 0.2;
             z-index: 0;
         }
@@ -172,6 +188,7 @@
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
             animation: fadeInUp 1.5s ease-out 0.6s both;
         }
 
@@ -427,27 +444,20 @@
             align-items: center;
         }
 
-       .about-image {
-    display: flex;
-    justify-content: center;
-}
-
-.vertical-video {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-
-        .about-image.animate {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.8s ease;
+        .about-image {
+            display: flex;
+            justify-content: center;
         }
 
-      
+        .vertical-video {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
         .about-text h2 {
             font-size: 2.5rem;
             color: var(--dark);
@@ -703,56 +713,7 @@
             color: rgba(255,255,255,0.5);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                transition: left 0.3s;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .social-nav {
-                margin-left: 0;
-                justify-content: center;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-content,
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-image {
-                display: none;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-
+        /* Success/Error Messages */
         .success-message {
             background: #d4edda;
             color: #155724;
@@ -770,25 +731,346 @@
             margin-bottom: 1rem;
             display: none;
         }
+
+        /* ===============================
+           RESPONSIVE DESIGN
+        ================================ */
+        
+        /* Large Tablets and Small Laptops */
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content {
+                gap: 2rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                gap: 3rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .logo span {
+                font-size: 16px;
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 4rem 0;
+                margin-top: 70px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            /* Navigation for tablets */
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease-in-out;
+                overflow-y: auto;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+            }
+            
+            .social-nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            /* About section */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .vertical-video {
+                max-width: 280px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Contact section */
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            /* Services */
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+            
+            .logo span {
+                font-size: 14px;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+                margin-top: 60px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services,
+            .about,
+            .contact {
+                padding: 4rem 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .see-more-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .about-text h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                gap: 2rem;
+            }
+            
+            .feature {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .feature-icon {
+                margin: 0 auto;
+            }
+            
+            .contact-info {
+                gap: 1.5rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .contact-icon {
+                margin: 0 auto;
+            }
+            
+            footer {
+                padding: 3rem 1rem 1.5rem;
+            }
+            
+            .footer-content {
+                gap: 2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Very Small Phones */
+        @media (max-width: 360px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                padding: 0.7rem 0.8rem;
+            }
+            
+            .logo span {
+                font-size: 12px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .stat h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Landscape Mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 5rem 0;
+            }
+            
+            .nav-links {
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .hero-buttons, .see-more-container, .contact-form, .social-links, footer {
+                display: none !important;
+            }
+            
+            .hero {
+                background: white !important;
+                color: black !important;
+                margin-top: 0;
+                height: auto;
+            }
+            
+            .hero::before {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                color: black !important;
+                animation: none !important;
+            }
+            
+            .hero-text p {
+                color: black !important;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .service-card, .contact-info, .about-content {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- Navigation (same as other pages) -->
+<!-- Navigation -->
 <nav id="navbar">
     <div class="nav-container">
-        <div class="logo" style="display:flex; align-items:center; gap:8px;">
-            <img src="Novus.jpg" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
-            <span style="font-weight:700; font-size:18px; color: Black;">Novus Path Labs & Diagnostic Centre Pvt.Ltd.</span>
+        <div class="logo">
+            <img src="Novus.jpg" alt="Novus Path Labs Logo">
+            <span>Novus Path Labs & Diagnostic Centre Pvt.Ltd.</span>
         </div>
 
         <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="Our Services.html">Services</a></li>
-    <li><a href="About us.html">About Us</a></li>
-    <li><a href="Test Price List.html">Test Price</a></li>
-    <li><a href="Contact us.html">Contact</a></li>
-</ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="Our Services.html">Services</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href="Test Price List.html">Test Price</a></li>
+            <li><a href="Contact us.html">Contact</a></li>
+        </ul>
         
         <div class="social-nav">
             <a href="https://www.facebook.com/Novuspath" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -802,37 +1084,37 @@
     </div>
 </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Your Health, Our Priority</h1>
-                <p>"Novus Path Labs — एक आधुनिक र विश्वसनीय diagnostic centre, जहाँ तपाईंको स्वास्थ्यको प्रत्येक रिपोर्टमा सटीकता, गति र हेरचाह प्राथमिकता हो।"</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="#contact" class="btn btn-secondary">Book a Test</a>
-                </div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Your Health, Our Priority</h1>
+            <p>"Novus Path Labs — एक आधुनिक र विश्वसनीय diagnostic centre, जहाँ तपाईंको स्वास्थ्यको प्रत्येक रिपोर्टमा सटीकता, गति र हेरचाह प्राथमिकता हो।"</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact" class="btn btn-secondary">Book a Test</a>
             </div>
-            <div class="hero-image">
-                <div class="floating-card">
-                    <div class="stat">
-                        <h3>50K+</h3>
-                        <p>Tests Completed</p>
-                    </div>
-                    <div class="stat">
-                        <h3>99.9%</h3>
-                        <p>Accuracy Rate</p>
-                    </div>
-                    <div class="stat">
-                        <h3>B</h3>
-                        <p>Grade Lab</p>
-                    </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card">
+                <div class="stat">
+                    <h3>50K+</h3>
+                    <p>Tests Completed</p>
+                </div>
+                <div class="stat">
+                    <h3>99.9%</h3>
+                    <p>Accuracy Rate</p>
+                </div>
+                <div class="stat">
+                    <h3>B</h3>
+                    <p>Grade Lab</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-   <!-- Services Section -->
+<!-- Services Section -->
 <section class="services" id="services">
     <div class="section-title">
         <h2>Our Services</h2>
@@ -840,8 +1122,6 @@
     </div>
 
     <div class="services-grid">
-
-        <!-- Pathology -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-vial"></i>
@@ -856,7 +1136,6 @@
             </ul>
         </div>
 
-        <!-- Hematology -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-microscope"></i>
@@ -871,7 +1150,6 @@
             </ul>
         </div>
 
-        <!-- Biochemistry -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-flask"></i>
@@ -886,7 +1164,6 @@
             </ul>
         </div>
 
-        <!-- Microbiology -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-bacteria"></i>
@@ -901,7 +1178,6 @@
             </ul>
         </div>
 
-        <!-- Immunology / Serology -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-shield-virus"></i>
@@ -916,7 +1192,6 @@
             </ul>
         </div>
 
-        <!-- Hormone / Endocrinology -->
         <div class="service-card">
             <div class="service-icon">
                 <i class="fas fa-heartbeat"></i>
@@ -930,7 +1205,6 @@
                 <li>Insulin & Cortisol</li>
             </ul>
         </div>
-
     </div>
 
     <div class="see-more-container">
@@ -940,38 +1214,19 @@
     </div>
 </section>
 
-
 <!-- About Section -->
 <section class="about" id="about">
     <div class="about-content">
-
-        <!-- Video -->
         <div class="about-image">
-            <video 
-                src="123.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                controls
-                class="vertical-video">
-            </video>
+            <video src="123.mp4" autoplay muted loop playsinline controls class="vertical-video"></video>
         </div>
 
-        <!-- Text -->
         <div class="about-text">
             <h2>About Novus Path Labs & Diagnostic Centre</h2>
 
-            <p>
-                "हाम्रो लक्ष्य — अत्याधुनिक प्रविधि र अनुभवी चिकित्सकहरूको सहकार्यमा 
-                सटीक रिपोर्ट र दिगो स्वास्थ्य समाधान प्रदान गर्नु हो।"
-            </p>
+            <p>"हाम्रो लक्ष्य — अत्याधुनिक प्रविधि र अनुभवी चिकित्सकहरूको सहकार्यमा सटीक रिपोर्ट र दिगो स्वास्थ्य समाधान प्रदान गर्नु हो।"</p>
 
-            <p>
-                Established in 2073 B.S., Novus Path Labs is a modern diagnostic centre 
-                located in Lampati, Kalanki, dedicated to providing accurate, affordable, 
-                and accessible laboratory services.
-            </p>
+            <p>Established in 2073 B.S., Novus Path Labs is a modern diagnostic centre located in Lampati, Kalanki, dedicated to providing accurate, affordable, and accessible laboratory services.</p>
 
             <div class="features">
                 <div class="feature">
@@ -1015,10 +1270,8 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- Button -->
     <div class="see-more-container">
         <button class="see-more-btn" id="aboutSeeMore">
             <i class="fas fa-arrow-right"></i> Learn More About Us
@@ -1026,118 +1279,117 @@
     </div>
 </section>
 
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us for appointments and inquiries</p>
+    </div>
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Our Location</h3>
+                    <p>Lampati kalanki 14,<br>Kathmandu, Nepal, 44600</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Phone Number</h3>
+                    <p>01-5234659</p>
+                    <p>9860007296</p>
+                    <p>9808324145</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Email Address</h3>
+                    <p>novusnepal@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Working Hours</h3>
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <div class="success-message" id="successMessage">
+                Thank you! Your message has been sent successfully.
+            </div>
+            <div class="error-message" id="errorMessage">
+                Please fill in all fields correctly.
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for appointments and inquiries</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Our Location</h3>
-                        <p>Lampati kalanki 14,<br>Kathmandu, Nepal, 44600</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Phone Number</h3>
-                        <p>01-5234659</p>
-                        <p>9860007296</p>
-                        <p>9851036028</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email Address</h3>
-                        <p>novusnepal@gmail.com</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Working Hours</h3>
-                        <p>Sunday - Friday: 7 AM - 7 PM<br>Saturday: 7 AM - 2 PM</p>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <div class="success-message" id="successMessage">
-                    Thank you! Your message has been sent successfully.
-                </div>
-                <div class="error-message" id="errorMessage">
-                    Please fill in all fields correctly.
-                </div>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3><i class="fas fa-flask"></i> Novus Path Labs & Diagnostic Centre Pvt.Ltd.</h3>
+            <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3><i class="fas fa-flask"></i> Novus Path Labs & Diagnostic Centre Pvt.Ltd.</h3>
-                <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact">Book Appointment</a>
-            </div>
-            <div class="footer-section">
-                <h3>Our Services</h3>
-                <a href="#">Clinical Chemistry</a>
-                <a href="#">Hematology</a>
-                <a href="#">Microbiology</a>
-                <a href="#">Molecular Diagnostics</a>
-                <a href="#">Immunology</a>
-            </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact">Book Appointment</a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Novus Path Labs & Diagnostic Centre. All rights reserved.</p>
+        <div class="footer-section">
+            <h3>Our Services</h3>
+            <a href="#">Clinical Chemistry</a>
+            <a href="#">Hematology</a>
+            <a href="#">Microbiology</a>
+            <a href="#">Molecular Diagnostics</a>
+            <a href="#">Immunology</a>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Novus Path Labs & Diagnostic Centre. All rights reserved.</p>
+    </div>
+</footer>
 
 <script>
 // Mobile Menu Toggle
@@ -1150,6 +1402,9 @@ if (mobileMenu && navLinks) {
         const icon = mobileMenu.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
     
     // Close mobile menu when clicking a link
@@ -1158,60 +1413,22 @@ if (mobileMenu && navLinks) {
             navLinks.classList.remove('active');
             mobileMenu.querySelector('i').classList.add('fa-bars');
             mobileMenu.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
         });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenu.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenu.querySelector('i').classList.add('fa-bars');
+            mobileMenu.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
     });
 }
 
-// Highlight current page
-document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname.split("/").pop();
-    const navLinksAll = document.querySelectorAll('.nav-links a');
-    
-    navLinksAll.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-});
-
-/* ===============================
-   SMOOTH SCROLLING (FOR SECTIONS ON SAME PAGE)
-================================ */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        
-        // Only handle internal page anchors (not external links)
-        if (targetId.startsWith('#') && targetId !== '#') {
-            const target = document.querySelector(targetId);
-            
-            if (target) {
-                e.preventDefault();
-                const yOffset = -80;
-                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                
-                window.scrollTo({ top: y, behavior: 'smooth' });
-                
-                // Close mobile menu
-                if (navLinks) {
-                    navLinks.classList.remove('active');
-                    if (mobileMenu) {
-                        mobileMenu.querySelector('i').classList.add('fa-bars');
-                        mobileMenu.querySelector('i').classList.remove('fa-times');
-                    }
-                }
-            }
-        }
-    });
-});
-
-/* ===============================
-   NAVBAR SCROLL EFFECT
-================================ */
+// Navbar scroll effect
 const navbar = document.getElementById('navbar');
 
 window.addEventListener('scroll', () => {
@@ -1224,9 +1441,51 @@ window.addEventListener('scroll', () => {
     }
 });
 
-/* ===============================
-   CONTACT FORM VALIDATION
-================================ */
+// Highlight current page
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinksAll = document.querySelectorAll('.nav-links a');
+    const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+    
+    navLinksAll.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        
+        if (targetId.startsWith('#') && targetId !== '#') {
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                e.preventDefault();
+                const yOffset = -80;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                
+                // Close mobile menu if open
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (mobileMenu) {
+                        mobileMenu.querySelector('i').classList.add('fa-bars');
+                        mobileMenu.querySelector('i').classList.remove('fa-times');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
+        }
+    });
+});
+
+// Contact form handling
 const contactForm = document.getElementById('contactForm');
 const successMessage = document.getElementById('successMessage');
 const errorMessage = document.getElementById('errorMessage');
@@ -1251,13 +1510,17 @@ if (contactForm) {
             return;
         }
 
+        // Show success message
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
         contactForm.reset();
 
+        // Scroll to show success message
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
         setTimeout(() => {
             successMessage.style.display = 'none';
-        }, 4000);
+        }, 5000);
     });
 }
 
@@ -1265,14 +1528,16 @@ function showError(msg) {
     errorMessage.textContent = msg;
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
+    
+    // Scroll to show error message
+    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
     setTimeout(() => {
         errorMessage.style.display = 'none';
-    }, 3000);
+    }, 4000);
 }
 
-/* ===============================
-   SEE MORE BUTTONS
-================================ */
+// See More buttons
 const servicesBtn = document.getElementById('servicesSeeMore');
 const aboutBtn = document.getElementById('aboutSeeMore');
 
@@ -1288,12 +1553,10 @@ if (aboutBtn) {
     });
 }
 
-/* ===============================
-   INTERSECTION OBSERVER (ANIMATION)
-================================ */
+// Intersection Observer for animations
 const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver(entries => {
@@ -1305,53 +1568,55 @@ const observer = new IntersectionObserver(entries => {
     });
 }, observerOptions);
 
+// Observe elements for animation
 document.querySelectorAll(
-    '.service-card, .feature, .contact-item, .about-image, .about-text h2, .about-text p, .contact-form'
+    '.service-card, .feature, .contact-item, .about-text h2, .about-text p, .contact-form'
 ).forEach(el => {
     if (el) observer.observe(el);
 });
-</script>
-<script>
-// SUPER SIMPLE - Highlight current page
+
+// Handle window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Close mobile menu on resize to desktop
+        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            if (mobileMenu) {
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = '';
+            }
+        }
+    }, 250);
+});
+
+// Fix for mobile viewport height
+function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+
+// Lazy load images
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const pageTitle = document.title.toLowerCase();
-
-    // Reset all links
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    // Set active based on page title
-    if (pageTitle.includes('services')) {
-        document.querySelector('.nav-links a[href="Our Services.html"]').classList.add('active');
-    } 
-    else if (pageTitle.includes('about')) {
-        document.querySelector('.nav-links a[href="About us.html"]').classList.add('active');
-    }
-    else if (pageTitle.includes('test price list')) {  // Fixed typo here
-        document.querySelector('.nav-links a[href="Test Price List.html"]').classList.add('active');
-    }
-    else if (pageTitle.includes('contact')) {
-        document.querySelector('.nav-links a[href="Contact us.html"]').classList.add('active');
-    }
-    else {
-        // Default to Home
-        document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
-    }
-
-    // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navLinksElement = document.getElementById('navLinks');
-
-    if (mobileMenu && navLinksElement) {
-        mobileMenu.addEventListener('click', () => {
-            navLinksElement.classList.toggle('active');
-            const icon = mobileMenu.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
             }
         });
-    }
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
 });
 </script>
 

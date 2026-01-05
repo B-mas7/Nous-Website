@@ -33,10 +33,9 @@ body {
     background-attachment: fixed;
 }
 
- /* Navigation */
+      /* Navigation */
         nav {
             position: fixed;
-            left:0;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
@@ -59,6 +58,24 @@ body {
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo span {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark);
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -68,11 +85,11 @@ body {
 
         .nav-links a {
             text-decoration: none;
-            left: 196px;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -91,13 +108,10 @@ body {
             width: 100%;
         }
 
-       .social-nav {
-    display: flex;       /* keep icons in a row */
-    gap: 1rem;           /* space between icons */
-    transform: translateX(100px); /* move whole social icons container slightly left */
-}
-
-
+        .social-nav {
+            display: flex;
+            gap: 1rem;
+        }
 
         .social-nav a {
             width: 36px;
@@ -121,6 +135,7 @@ body {
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--dark);
+            z-index: 1001;
         }
 
 
@@ -1243,7 +1258,7 @@ body {
                         <h3>Phone Number</h3>
                         <p>01-5234659</p>
                         <p>9860007296</p>
-                        <p>9851036028</p>
+                        <p>9808324145</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1303,18 +1318,16 @@ body {
                 <p>Leading the way in medical diagnostics with precision, innovation, and care. Your health is our mission.</p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/Novuspath"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="novus.html">Home</a>
+                 <a href="index.html">Home</a>
                 <a href="Our Services.html">Services</a>
                 <a href="About us.html">About Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Book Appointment</a>
+                <a href="Test Price List.html">Test Price</a>
+                <a href="COntact us.html">Contact</a>
             </div>
             <div class="footer-section">
                 <h3>Our Services</h3>

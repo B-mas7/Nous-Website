@@ -935,199 +935,201 @@
             { sn: "351", name: "ACE LEVEL", price: "2000", reporting: "Next day" }
         ];
 
-        // Function to get badge class based on reporting time
-        function getBadgeClass(reporting) {
-            const lower = reporting.toLowerCase();
-            if (lower.includes("same day")) return "same-day";
-            if (lower.includes("next day") || lower.includes("nextday")) return "next-day";
-            if (lower.includes("week") || lower.includes("weeks")) return "weeks";
-            return "multiple-days";
-        }
+    // Function to get badge class based on reporting time
+    function getBadgeClass(reporting) {
+        const lower = reporting.toLowerCase();
+        if (lower.includes("same day")) return "same-day";
+        if (lower.includes("next day") || lower.includes("nextday")) return "next-day";
+        if (lower.includes("week") || lower.includes("weeks")) return "weeks";
+        return "multiple-days";
+    }
 
-        // Function to render price cards in two columns
-        function renderPriceCards(data) {
-            const priceGrid = document.getElementById('priceGrid');
-            priceGrid.innerHTML = '';
+    // Function to render price cards in two columns
+    function renderPriceCards(data) {
+        const priceGrid = document.getElementById('priceGrid');
+        priceGrid.innerHTML = '';
+        
+        const leftColumn = document.createElement('div');
+        leftColumn.className = 'price-column';
+        
+        const rightColumn = document.createElement('div');
+        rightColumn.className = 'price-column';
+        
+        // Split data between two columns
+        const midPoint = Math.ceil(data.length / 2);
+        const leftData = data.slice(0, midPoint);
+        const rightData = data.slice(midPoint);
+        
+        // Render left column
+        leftData.forEach((test, index) => {
+            const badgeClass = getBadgeClass(test.reporting);
+            const card = document.createElement('div');
+            card.className = 'price-card animate';
+            card.style.animationDelay = `${index * 0.05}s`;
             
-            const leftColumn = document.createElement('div');
-            leftColumn.className = 'price-column';
-            
-            const rightColumn = document.createElement('div');
-            rightColumn.className = 'price-column';
-            
-            // Split data between two columns
-            const midPoint = Math.ceil(data.length / 2);
-            const leftData = data.slice(0, midPoint);
-            const rightData = data.slice(midPoint);
-            
-            // Render left column
-            leftData.forEach((test, index) => {
-                const badgeClass = getBadgeClass(test.reporting);
-                const card = document.createElement('div');
-                card.className = 'price-card animate';
-                card.style.animationDelay = `${index * 0.05}s`;
-                
-                card.innerHTML = `
-                    <div class="test-header">
-                        <div class="test-sn">${test.sn}</div>
-                        <div class="test-name">${test.name}</div>
-                        <div class="test-price">NPR ${test.price}</div>
+            card.innerHTML = `
+                <div class="test-header">
+                    <div class="test-sn">${test.sn}</div>
+                    <div class="test-name">${test.name}</div>
+                    <div class="test-price">NPR ${test.price}</div>
+                </div>
+                <div class="test-details">
+                    <div class="reporting-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Reporting: </span>
+                        <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
                     </div>
-                    <div class="test-details">
-                        <div class="reporting-time">
-                            <i class="fas fa-clock"></i>
-                            <span>Reporting: </span>
-                            <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
-                        </div>
-                    </div>
-                `;
-                
-                leftColumn.appendChild(card);
-            });
+                </div>
+            `;
             
-            // Render right column
-            rightData.forEach((test, index) => {
-                const badgeClass = getBadgeClass(test.reporting);
-                const card = document.createElement('div');
-                card.className = 'price-card animate';
-                card.style.animationDelay = `${(index + leftData.length) * 0.05}s`;
-                
-                card.innerHTML = `
-                    <div class="test-header">
-                        <div class="test-sn">${test.sn}</div>
-                        <div class="test-name">${test.name}</div>
-                        <div class="test-price">NPR ${test.price}</div>
-                    </div>
-                    <div class="test-details">
-                        <div class="reporting-time">
-                            <i class="fas fa-clock"></i>
-                            <span>Reporting: </span>
-                            <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
-                        </div>
-                    </div>
-                `;
-                
-                rightColumn.appendChild(card);
-            });
+            leftColumn.appendChild(card);
+        });
+        
+        // Render right column
+        rightData.forEach((test, index) => {
+            const badgeClass = getBadgeClass(test.reporting);
+            const card = document.createElement('div');
+            card.className = 'price-card animate';
+            card.style.animationDelay = `${(index + leftData.length) * 0.05}s`;
             
-            priceGrid.appendChild(leftColumn);
-            priceGrid.appendChild(rightColumn);
+            card.innerHTML = `
+                <div class="test-header">
+                    <div class="test-sn">${test.sn}</div>
+                    <div class="test-name">${test.name}</div>
+                    <div class="test-price">NPR ${test.price}</div>
+                </div>
+                <div class="test-details">
+                    <div class="reporting-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Reporting: </span>
+                        <span class="reporting-badge ${badgeClass}">${test.reporting}</span>
+                    </div>
+                </div>
+            `;
             
-            // Update result count
-            document.getElementById('resultCount').textContent = data.length;
-        }
+            rightColumn.appendChild(card);
+        });
+        
+        priceGrid.appendChild(leftColumn);
+        priceGrid.appendChild(rightColumn);
+        
+        // Update result count
+        document.getElementById('resultCount').textContent = data.length;
+    }
 
-        // Initial render
-        renderPriceCards(testData);
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initial render of price cards
+        if (typeof testData !== 'undefined') {
+            renderPriceCards(testData);
+        }
 
         // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            
-            if (!searchTerm) {
-                renderPriceCards(testData);
-                return;
-            }
-            
-            const filteredData = testData.filter(test => 
-                test.name.toLowerCase().includes(searchTerm) || 
-                test.sn.toLowerCase().includes(searchTerm)
-            );
-            
-            renderPriceCards(filteredData);
-        });
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                
+                if (!searchTerm) {
+                    renderPriceCards(testData);
+                    return;
+                }
+                
+                const filteredData = testData.filter(test => 
+                    test.name.toLowerCase().includes(searchTerm) || 
+                    test.sn.toLowerCase().includes(searchTerm)
+                );
+                
+                renderPriceCards(filteredData);
+            });
+        }
 
-        // Navigation Scripts
+        // Mobile Menu Toggle - SINGLE VERSION (no duplicates)
         const mobileMenu = document.getElementById('mobileMenu');
         const navLinks = document.getElementById('navLinks');
 
         if (mobileMenu && navLinks) {
-            mobileMenu.addEventListener('click', () => {
+            mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                
+                // Toggle menu
                 navLinks.classList.toggle('active');
+                
+                // Toggle icon
                 const icon = mobileMenu.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                    document.body.style.overflow = 'hidden'; // Prevent body scroll
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = ''; // Restore scroll
+                }
             });
             
+            // Close menu when clicking links
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
-                    mobileMenu.querySelector('i').classList.add('fa-bars');
-                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                    const icon = mobileMenu.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    document.body.style.overflow = '';
                 });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenu.contains(e.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenu.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    document.body.style.overflow = '';
+                }
             });
         }
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (navbar) {
+        if (navbar) {
+            window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-            }
-        });
-
-        // Highlight current page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split("/").pop();
-            const navLinksAll = document.querySelectorAll('.nav-links a');
-            
-            navLinksAll.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage || 
-                    (currentPage === '' && linkPage === 'index.html')) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
             });
-        });
-    </script>
-<script>
-// SUPER SIMPLE - Highlight current page
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const pageTitle = document.title.toLowerCase();
+        }
 
-    // Reset all links
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    // Set active based on page title
-    if (pageTitle.includes('services')) {
-        document.querySelector('.nav-links a[href="Our Services.html"]').classList.add('active');
-    } 
-    else if (pageTitle.includes('about')) {
-        document.querySelector('.nav-links a[href="About us.html"]').classList.add('active');
-    }
-    else if (pageTitle.includes('test price list')) {  // Fixed typo here
-        document.querySelector('.nav-links a[href="Test Price List.html"]').classList.add('active');
-    }
-    else if (pageTitle.includes('contact')) {
-        document.querySelector('.nav-links a[href="Contact us.html"]').classList.add('active');
-    }
-    else {
-        // Default to Home
-        document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
-    }
-
-    // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navLinksElement = document.getElementById('navLinks');
-
-    if (mobileMenu && navLinksElement) {
-        mobileMenu.addEventListener('click', () => {
-            navLinksElement.classList.toggle('active');
-            const icon = mobileMenu.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+        // Highlight current page - SIMPLE VERSION
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+        const currentPage = window.location.pathname.split("/").pop();
+        
+        navLinksAll.forEach(link => {
+            link.classList.remove('active');
+            const linkPage = link.getAttribute('href');
+            
+            // Check if this link matches current page
+            if (linkPage === currentPage || 
+                (currentPage === '' && linkPage === 'index.html') ||
+                (currentPage === undefined && linkPage === 'index.html')) {
+                link.classList.add('active');
             }
         });
-    }
-});
+    });
+
+    // Set minimum date for booking (if you have date inputs)
+    const today = new Date().toISOString().split('T')[0];
+    const dateInputs = document.querySelectorAll('input[type="date"]');
+    dateInputs.forEach(input => {
+        input.setAttribute('min', today);
+    });
 </script>
 
 </body>
